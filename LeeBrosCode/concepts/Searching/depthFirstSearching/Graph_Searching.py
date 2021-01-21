@@ -39,8 +39,8 @@ visited = [False for _ in range(0, n)]  # change to True if vertex is visited
 # [DFS]
 def DFS(vertex):
     for curr_v in range(n):
-        
         print(f'curr_v: {curr_v}')
+        print(vertices[vertex][2])
         print(f'[Check index error] : {vertices[vertex][curr_v]}')  # When curr_v == 2 (out of range)
         print(f'[Check index error] : {visited[curr_v]}')
 
