@@ -1,63 +1,48 @@
-'''
-k개 중에 1개를 n번 뽑기
-1부터 K 사이의 숫자를 하나 고르는 행위를 N번 반복하여 나올 수 있는 모든 서로 다른 순서쌍을 구해주는 프로그램을 작성해보세요.
-
-예를 들어 K이 3, N이 2인 경우 다음과 같이 9개의 조합이 가능합니다.
-
-1 1
-1 2
-1 3
-2 1
-2 2
-2 3
-3 1
-3 2
-3 3
-
-입력 형식
-첫째 줄에 K와 N이 공백을 사이에 두고 주어집니다.
-1 ≤ K ≤ 4
-1 ≤ N ≤ 8
-
-출력 형식
-서로 다른 순서쌍의 개수 만큼의 줄에 걸쳐 한 줄에 하나씩 순서쌍의 상태를 공백을 사이에 두고 출력합니다. 이때 앞에서 부터 봤을 때 사전순으로 앞선 순서쌍부터 출력합니다.
-'''
-
+# [Import Module]
 import sys
 
 # [INPUT]
-# K: 1~K 사이의 숫자
-# N: N번 반복
-K, N = map(int, sys.stdin.readline().strip().split())
+# K: 1~4 사이의 숫자
+# N: N번 반복 (1~8)
+k, n = map(int, sys.stdin.readline().strip().split())
 
 # [FUNCTION]
-# FindPermutation(cnt) -> kCn - k중에 N개를 고르는 경우
+# FindPermutation(cnt) -> kCn : pick k among n (Recursion)
 # cnt: count
 def FindPermutation(cnt):
-    print('[FUNCTION] FindPermutation')
-    if cnt == K:
-        Print()
-        return
+    
+    # Base Case
+    if n == 1:
+        return n
+    
+    com = []
+    # Recursion Case
+    # N만큼 for문이 중첩되어야 모든 경우의 수를 파악하는데 어떡하나?
+    # 1~K 까지의 수 중 하나를 뽑는것을 FindPermutation(n)으로 삼고 다른 수를 뽑는걸 재귀로 구현
+    
 
-    row = []
-    for i in range(1, N+1):  # 1~K 사이의 수를 [N번] 뽑기
-        print(f'\t[FOR] i is {i}')
-        if cnt == K:
-            Print()
-            return
-        row.append(FindPermutation(i+1))
-        cnt += 1
-        print(f'\t\tROW is {row}')
+
+
+    
+    return
     
     
 
+# Print(): for문으로 모든 결과를 출력
 def Print():
     print('[FUNCTION] print')
+
     return 0
 
 def main():
+    cnt = 0
     answer = []
     FindPermutation(1)  # 1부터 K까지 1씩 증가
+    
+    for i in range(n):
+        for j in range(k):
+            answer.append(FindPermutation(j))
+    
     return 0
 
 if __name__ == '__main__':
