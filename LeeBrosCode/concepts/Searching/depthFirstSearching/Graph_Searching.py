@@ -27,29 +27,53 @@ import sys
 
 # [INPUT]
 n, m = map(int, sys.stdin.readline().strip().split())  # n : vertex, m: edge
-graph = [
+vertices = [
     list(map(int, sys.stdin.readline().strip().split()))  # x, y
     for _ in range(0, m)
 ]
 
 # [VISITED]
-visited = [False for _ in range(0, n)]  # change to True if vertex is visited
+visited = [False for _ in range(0, n+1)]  # change to True if vertex is visited
 
 # [DFS]
 def DFS(vertex):
-    for curr_v in range(n):
-        if graph[vertex][curr_v] and ~visited[curr_v]:  # 1 -> 2, 2 -> 3 ...
-            print(curr_v)
+    for curr_v in range(n+1):
+        
+        print(f'curr_v: {curr_v}')
+        print(f'[Check index error] : {vertices[vertex][curr_v]}')  # When curr_v == 2 (out of range)
+        print(f'[Check index error] : {visited[curr_v]}')
+
+        if vertices[vertex][curr_v] and not visited[curr_v]:  # 1 -> 2, 2 -> 3 ...
             visited[curr_v] = True
             DFS(curr_v)
 
 # [Main]
 def main():
-    for i in range(6):
-        for j in range(6):
-            start = graph[i][j]
-            end = graph[i][j]
-    return
+
+    # [Set Initial Graph]
+    graph = [ list([0 for _ in range(n+1)]) for _ in range(n+1) ]
+    print(f'Graph:\n{graph}')
+
+    # start point, end point는 어떻게?
+    # 입력받은 값의 [0]이 start고 [1]이 end인가?
+    for row in range(m):
+        # for row in range(n):
+        start = vertices[row][0]  # start vertex x
+        print(f'start: {start}')
+        end = vertices[row][1]  # end vertex y
+        print(f'end: {end}')
+
+        # ??? Assign vertex 
+        graph[start][end] = 1  # example line 1 (1, 2) => graph[1][2]
+        graph[end][start] = 1
+
+        print(f'Graph:\n {graph}\n')
+
+    # [ROOT]
+    root_v = 1
+    print(f'root_v: {root_v}')
+    visited[root_v] = True
+    DFS(root_v)  # resursion start
 
 
 if __name__ == '__main__':
