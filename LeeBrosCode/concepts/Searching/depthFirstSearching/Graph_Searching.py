@@ -27,17 +27,18 @@ import sys
 
 # [INPUT]
 n, m = map(int, sys.stdin.readline().strip().split())  # n : vertex, m: edge
+# index range
 vertices = [
     list(map(int, sys.stdin.readline().strip().split()))  # x, y
     for _ in range(0, m)
 ]
 
 # [VISITED]
-visited = [False for _ in range(0, n+1)]  # change to True if vertex is visited
+visited = [False for _ in range(0, n)]  # change to True if vertex is visited
 
 # [DFS]
 def DFS(vertex):
-    for curr_v in range(n+1):
+    for curr_v in range(n):
         
         print(f'curr_v: {curr_v}')
         print(f'[Check index error] : {vertices[vertex][curr_v]}')  # When curr_v == 2 (out of range)
