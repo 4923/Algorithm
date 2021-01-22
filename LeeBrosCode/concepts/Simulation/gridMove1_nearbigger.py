@@ -1,8 +1,15 @@
+'''
+4 1 1
+1 2 2 3
+3 5 10 15
+3 8 11 2
+4 5 4 4
+'''
 import sys
 
 # 입력
 # n: 격자 크기, r for row / c for col: 시작 위치
-n, r, c = map(int, sys.stdin.readline().strip().split())
+n, r, c = tuple(map(int, sys.stdin.readline().strip().split()))
 grid = [list(map(int, sys.stdin.readline().strip().split())) for _ in range(n)]
 
 # print(f'[INPUT CHECK]\n\tline 1 - n:{n} r:{r} c:{c}\n\tline 2 - grid:{grid}')
