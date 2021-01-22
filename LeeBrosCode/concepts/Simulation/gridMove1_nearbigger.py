@@ -10,7 +10,11 @@ import sys
 # 입력
 # n: 격자 크기, r for row / c for col: 시작 위치
 n, r, c = tuple(map(int, sys.stdin.readline().strip().split()))
-grid = [list(map(int, sys.stdin.readline().strip().split())) for _ in range(n)]
+# grid = [list(map(int, sys.stdin.readline().strip().split())) for _ in range(n+1)]
+grid = [
+    [0 for _ in range(n+1)]
+    for _ in range(n+1)
+]
 
 # print(f'[INPUT CHECK]\n\tline 1 - n:{n} r:{r} c:{c}\n\tline 2 - grid:{grid}')
 
@@ -70,7 +74,7 @@ def main():
     
     # 출력
     for visited_num in visited_nums:
-        print(visited_num, end = '')
+        print(visited_num, end = ' ')
 
 if __name__ == '__main__':
     main()
