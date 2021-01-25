@@ -1,5 +1,6 @@
+# 4ways_excape.py
 '''
-[BFS PseudoCode]
+[BFS PseudoCodgite]
 
 def breadth_first_search(problem):
 
@@ -92,6 +93,8 @@ def BFS():
 
     # 반복문으로 탐색
     while q: # deque이 비지 않았을 때
+        return
+        
 
 
     return
