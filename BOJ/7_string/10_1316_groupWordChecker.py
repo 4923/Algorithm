@@ -22,26 +22,32 @@ aabbbccb는 b가 떨어져서 나타나기 때문에 그룹 단어가 아니다.
 import sys
 
 # INPUT
-N = int(sys.stdin.readline())  # 1 <= N <= 100
+N = int(sys.stdin.readline().strip())  # 1 <= N <= 100
 group = [sys.stdin.readline().strip() for _ in range(0, N)]
 
 # SOLVE
-count = len(group)
-for i in range(0, N):
-    print(f'[0] word: {group[i]}')
-    while len(group[i]) != 0:
-        first = group[i][0]
-        print(f'\t[1] first alphabet: {first}')
-        print(f'\t[1] if condition: {group[i].find(first)}')
-        # 첫번째 글자를 찾고 지움
-        if group[i].find(first) == 0:
-            group[i] = group[i][1:]
-            print(f'\t\t[2] new string: {group[i]}')
+
+# [loop] 각 줄의 str에 접근
+for index in range(N):
+    string = group[index]
+    # 요소 확인
+    elements = set(string)
+
+    # 연속 확인
+    status = 0
+
+    # [loop] 한 줄의 알파벳에 접근
+    for element in elements:
+        for alpha in string:
+            if alpha == element:
+                continue
+            else:
+                status = 1
+                # 어떻게 연속되지 않는단걸 알리지?
             
-        if group[i].find(first) != -1:
-            count -= 1
-            print("[X]")
-            break
+            
+        
+
 
 # OUTPUT
-print(count)
+# print(count)
