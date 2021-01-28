@@ -73,7 +73,7 @@ def isCroatia(string, croatia, count):
                 # **파이썬의 문자열은 수정이 불가능하다!**
                 # replace를 쓰려고 해도 string = string 형식을 만들어야하는데 그러느니 슬라이싱 하는게 나음
                 # string = string[index : index + alpha_len].replace(alpha_C, " ")  # (??)
-                string = string[:index] + string[index + leng+1:]
+                string = string[:index] + " " + string[index + leng+1:]
                 print(f'Changed string: {string}')
                 print()
 
