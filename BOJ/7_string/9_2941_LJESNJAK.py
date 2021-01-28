@@ -38,51 +38,30 @@ import sys
 # Is neccessary to convert str to list? -> X. Not sure how to slice string
 string = sys.stdin.readline().strip()
 
-count = 0
-n = len(string)-1
+# if문으로 하나하나 다 무식하게 검색하는건 아닌것같아서 엎음
+# string 내장함수를 쓰라는 말 같아서 find, replace, in 사용
 
-status = True
-while status:
-    if 97 <= ord(string[n]) <= 122 :
-        # print(f'0 alphabet: {string[n]}')
-        count += 1
-        n -= 1
-
-    elif string[n] == '=':
-        # print(f'1: {string[n]}, {string[n-1]}, {string[n-2]}')
-        if string[n-1] == 'z' and string[n-2] == 'd':
-            # print(f'  if: {string[n-1]}')
+def isCroatia(string, croatia, count):
+    # [탐색] 크로아티아 알파벳
+    for alpha_C in croatia:
+        if string.find(alpha_C) != -1:
             count += 1
-            n -= 3
-        elif string[n-1] == 'c' or 'z' or 's':
-            # print(f'  elif {string[n-1]}')
-            count += 1
-            n -= 2
-        else:
-            n -= 1
-            continue
+            string = string.replace(alpha_C, "")
+    
+    # [탐색] 일반 알파벳
+    count += len(string)
+    return count
 
-    elif string[n] == '-':
-        # print(f'2: {string[n]}')    
-        if string[n-1] == 'c' or 'd':
-            count += 1
-            n -= 2
-        else:
-            n -= 1
-            continue
+def main():
+    # variable
+    croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+    count = 0
+    # output
+    print(isCroatia(string,croatia, count))
 
-    elif string[n] == 'j':
-        # print(f'3: {string[n]}')    
-        if string[n-1] == 'l' or 'j':
-            count += 1
-            n -= 2
 
-    # print(f'[COUNT] {count}')
-
-    if n == -1:
-        status = False
-
-print(count)
+if __name__ == '__main__':
+    main()
 
 # 반례 확인
 # input : ljes=njak
