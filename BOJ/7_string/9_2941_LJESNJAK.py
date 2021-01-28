@@ -106,14 +106,22 @@ if __name__ == '__main__':
 
 # 반례 확인
 # input : ljes=njak
-# output : 8 -> which has to be 6
+# output : 8 
+# answer : 6
 
 # 반례 확인 2 (예제 3)
 # input : nljj
-# output : 2 -> which has to be 3
+# output : 2 
+# answer : 3
 # find와 replace로 문자열에서 크로아티아문자 lj를 제거하면 nj가 남는데 이걸 붙이면 또다른 크로아티아문자가 되므로 중간에 띄어쓰기를 해주고 다시 띄어쓰기를 제거하는 과정이 필요. (일반 알파벳 개수 셀 때)
 
 # 반례 확인 3 (예제 4)
 # input c=c=
-# output : 1 not 2 (O)
+# output : 1
+# answer : 2
 # replace 성질 때문인듯: c=와 c=에서 loop가 각각 따로 지워져야하는데 한번에 지워져버림
+
+# 반례 확인 4 (임의)
+# input : 
+# output : 
+# answer : 
