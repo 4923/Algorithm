@@ -42,15 +42,27 @@ string = sys.stdin.readline().strip()
 # string 내장함수를 쓰라는 말 같아서 find, replace, in 사용
 
 def isCroatia(string, croatia, count):
-    # [탐색] 크로아티아 알파벳
-    for alpha_C in croatia:
-        print(f'alpha_C: {alpha_C}')
-        if string.find(alpha_C) != -1:
-            count += 1
-            string = string.replace(alpha_C, "")
-            print(f'Changed string: {string}')
+    bPoint = 0
+    while bPoint < len(croatia):
+
+        # [탐색] 크로아티아 알파벳
+        for alpha_C in croatia:
+            print(f'alpha_C: {alpha_C}')
+            if string.find(alpha_C) != -1:
+                count += 1
+                string = string.replace(alpha_C, " ")
+                print(f'Changed string: {string}')
+
+        # [중지조건] if bPoint >= len(croatia)
+        bPoint = 0
+        for alpha_C in croatia:
+            if string.find(alpha_C) == -1:
+                bPoint += 1
+                # print(f'\n\t\tbPoint : {bPoint}\n')
+                
     
     # [탐색] 일반 알파벳
+    string = string.replace(" ", "")
     print(f'Normal alphabets: {len(string)}')
     count += len(string)
     print(f'Total count: {count}')
@@ -62,7 +74,7 @@ def main():
     count = 0
     # output
     print(f'Origin string: {string}')
-    print(isCroatia(string,croatia, count))
+    isCroatia(string,croatia, count)
 
 
 if __name__ == '__main__':
@@ -71,3 +83,8 @@ if __name__ == '__main__':
 # 반례 확인
 # input : ljes=njak
 # output : 8 -> which has to be 6
+
+# 반례 확인 2 (예제 3)
+# input : nljj
+# output : 2 -> which has to be 3
+# find와 replace로 문자열에서 크로아티아문자 lj를 제거하면 nj가 남는데 이걸 붙이면 또다른 크로아티아문자가 되므로 중간에 띄어쓰기를 해주고 다시 띄어쓰기를 제거하는 과정이 필요. (일반 알파벳 개수 셀 때)
