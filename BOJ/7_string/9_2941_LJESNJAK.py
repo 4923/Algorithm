@@ -83,3 +83,7 @@ while status:
         status = False
 
 print(count)
+
+# 반례 확인
+# input : ljes=njak
+# output : 8 -> which has to be 6
