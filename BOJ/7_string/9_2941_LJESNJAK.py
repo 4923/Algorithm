@@ -44,12 +44,16 @@ string = sys.stdin.readline().strip()
 def isCroatia(string, croatia, count):
     # [탐색] 크로아티아 알파벳
     for alpha_C in croatia:
+        print(f'alpha_C: {alpha_C}')
         if string.find(alpha_C) != -1:
             count += 1
             string = string.replace(alpha_C, "")
+            print(f'Changed string: {string}')
     
     # [탐색] 일반 알파벳
+    print(f'Normal alphabets: {len(string)}')
     count += len(string)
+    print(f'Total count: {count}')
     return count
 
 def main():
@@ -57,6 +61,7 @@ def main():
     croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
     count = 0
     # output
+    print(f'Origin string: {string}')
     print(isCroatia(string,croatia, count))
 
 
