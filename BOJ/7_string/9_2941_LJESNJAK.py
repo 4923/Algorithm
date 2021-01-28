@@ -42,29 +42,29 @@ string = sys.stdin.readline().strip()
 # string 내장함수를 쓰라는 말 같아서 find, replace, in 사용
 
 def isCroatia(string, croatia, count):
-    num = 0
+    # num = 0  # loop check variable
     bPoint = 0
     while bPoint < len(croatia):
 
         # [탐색] 크로아티아 알파벳
         for alpha_C in croatia:
-            num += 1  # loop check
-            print(f'-------------------{num}-------------------')
+            # num += 1  # loop check
+            # print(f'-------------------{num}-------------------')
             # [크로아티아 알파벳의 위치 확인]
             index = string.find(alpha_C)
-            print(index)
-            print(type(index))
-            print()
+            # print(index)
+            # print(type(index))
+            # print()
 
             leng = len(alpha_C) - 1
 
             # print(f'alpha_C: {alpha_C}')
             if string.find(alpha_C) != -1:
 
-                print(f'[ALPHA_C check] ::\
-                    {string[string.find(alpha_C) : string.find(alpha_C)+leng+1]}\
-                    \n{string[leng:]}')
-                print()
+                # print(f'[ALPHA_C check] ::\
+                    # {string[string.find(alpha_C) : string.find(alpha_C)+leng+1]}\
+                    # \n{string[leng:]}')
+                # print()
 
                 # [결과값 계산]
                 count += 1
@@ -74,8 +74,8 @@ def isCroatia(string, croatia, count):
                 # replace를 쓰려고 해도 string = string 형식을 만들어야하는데 그러느니 슬라이싱 하는게 나음
                 # string = string[index : index + alpha_len].replace(alpha_C, " ")  # (??)
                 string = string[:index] + " " + string[index + leng+1:]
-                print(f'Changed string: {string}')
-                print()
+                # print(f'Changed string: {string}')
+                # print()
 
             # [중지조건] if bPoint >= len(croatia)
             bPoint = 0
@@ -87,9 +87,9 @@ def isCroatia(string, croatia, count):
     
     # [탐색] 일반 알파벳
     string = string.replace(" ", "")
-    print(f'Normal alphabets: {len(string)}')
+    # print(f'Normal alphabets: {len(string)}')
     count += len(string)
-    print(f'Total count: {count}')
+    # print(f'Total count: {count}')
     return count
 
 def main():
@@ -97,8 +97,8 @@ def main():
     croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
     count = 0
     # output
-    print(f'Origin string: {string}')
-    isCroatia(string,croatia, count)
+    # print(f'Origin string: {string}')
+    print(isCroatia(string,croatia, count))
 
 
 if __name__ == '__main__':
