@@ -7,15 +7,18 @@ b = list(map(int, sys.stdin.readline().strip().split()))
 
 # 확인
 def isContinuous(a, b):
-    start = a.index(b[0])
+    try:
+        start = a.index(b[0])
 
-    cnt = -1
-    for num in b:
-        cnt += 1
-        if (a[start+cnt] != num):
-            return False
-    return True
-
+        cnt = -1
+        for num in b:
+            cnt += 1
+            if (a[start+cnt] != num):
+                return False
+        return True
+    
+    except:
+        return False
 def main():
     if isContinuous(a,b) == True:
         print('Yes')
