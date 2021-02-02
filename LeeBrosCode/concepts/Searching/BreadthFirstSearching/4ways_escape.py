@@ -1,46 +1,4 @@
 # 4ways_excape.py
-'''
-[BFS PseudoCodgite]
-
-def breadth_first_search(problem):
-
-  # a FIFO open_set
-  open_set = Queue()
-  # an empty set to maintain visited nodes
-  closed_set = set()
-  # a dictionary to maintain meta information (used for path formation)
-  meta = dict()  # key -> (parent state, action to reach child)
-
-  # initialize
-  start = problem.get_start_state()
-  meta[start] = (None, None)
-  open_set.enqueue(start)
-
-  while not open_set.is_empty():
-
-    parent_state = open_set.dequeue()
-
-    if problem.is_goal(parent_state):
-    ...
-'''
-
-'''
-n * m 크기의 이차원 영역의 좌측 상단에서 출발하여 
-우측 하단까지 뱀에게 물리지 않고 탈출하려고 합니다. 
-이동을 할 때에는 반드시 상하좌우에 인접한 칸으로만 이동할 수 있으며, 
-뱀이 있는 칸으로는 이동을 할 수 없습니다. 
-뱀에게 물리지 않고 탈출 가능한 경로가 있는지 여부를 판별하는 코드를 작성해보세요.
-
-입력 형식
-첫번째 줄에는 n과 m이 공백을 사이에 두고 주어지고,
-두번째 줄부터 (n+1)번째 줄까지는 각 행에 뱀이 없는 경우 1, 
-뱀이 있는 경우 0이 입력으로 공백을 사이에 두고 주어집니다. 
-시작 칸과 끝 칸에는 뱀이 주어지지 않는다고 가정해도 좋습니다.
-
-2 ≤ n, m ≤ 100
-출력 형식
-좌측 상단에서 출발하여 우측 하단까지 뱀에게 물리지 않고 탈출 가능한 경로가 있으면 1, 없으면 0을 출력합니다.
-'''
 
 # MODULE
 import sys  # .stdin.readline()
@@ -48,12 +6,20 @@ from collections import deque  # .deque()
 
 # INPUT
 n, m = map(int, sys.stdin.readline().strip().split())
-grid = [
-    list(map(int, sys.stdin.readline().strip().split()))
-    for _ in range(n)
-]  # grid: 2dim Array
+# grid = [
+#     list(map(int, sys.stdin.readline().strip().split()))
+#     for _ in range(n)
+# ]  # grid: 2dim Array
 
-print(f'[Grid Check]\n\t{grid}')
+graph = [
+    [0 for _ in range(n+1)]
+    for _ in range(n+1)
+]
+
+visited = [False for _ in range(n+1)]
+visited_cnt = 0
+
+# print(f'[Grid Check]\n\t{grid}')
 
 # [Variable]
 # x == row (down) / y == col (right)

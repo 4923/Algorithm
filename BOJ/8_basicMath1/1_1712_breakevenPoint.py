@@ -12,7 +12,7 @@ while True:
         print(-1)
         break
     profit += (C-B)
-    print(f'[ANSWER]\n\ttotal: {total}\n\ttotal: {profit}')
+    # print(f'[ANSWER]\n\ttotal: {total}\n\ttotal: {profit}')
     # output
     if profit > 0:
         print(total)
