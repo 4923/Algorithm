@@ -6,14 +6,12 @@ n = int(sys.stdin.readline().strip())
 # 유클리드 호제법 Euclidean-algorithm (a>b)
 def GCD(a, b):
     if a < b:
-        temp = a
-        a = b
-        b = temp
-
+        a, b = b, a
+    
     if b == 0:
         return a
-
-    return GCD(b, a%b)
+    else:
+        return GCD(a%b, b)
 
 def isPrime(n): 
     result = True
