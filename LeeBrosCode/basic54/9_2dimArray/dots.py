@@ -1,6 +1,6 @@
 # 입력
 n, m = map(int, input().split())
-cordinates = [
+coordinates = [
     list(map(int, input().split())) 
     for _ in range(m)
     ]
@@ -10,9 +10,9 @@ grid = [[0]*n for _ in range(n)]
 
 # 격자에 수 추가
 cnt = 1
-for cordinate in cordinates:
-    x = cordinate[0] - 1
-    y = cordinate[1] - 1 
+for coordinate in coordinates:
+    x = coordinate[0] - 1
+    y = coordinate[1] - 1 
 
     grid[x][y] += cnt
     cnt += 1
