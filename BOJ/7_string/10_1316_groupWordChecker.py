@@ -23,31 +23,53 @@ import sys
 
 # INPUT
 N = int(sys.stdin.readline().strip())  # 1 <= N <= 100
-group = [sys.stdin.readline().strip() for _ in range(0, N)]
+strings = [sys.stdin.readline().strip() for _ in range(0, N)]
 
 # SOLVE
 
+# [output] 결과값
+cnt = N
+
 # [loop] 각 줄의 str에 접근
-for index in range(N):
-    string = group[index]
-    # 요소 확인
-    elements = set(string)
+for string in strings:
+    
+    
+    # checker : 연속되는 상태일 때 1로 변함
+    checker = 1
 
-    # 연속 확인
-    status = 0
+    while len(string) > 0:
+        # .index() 를 사용해서 왼쪽부터 지워나갔을 때 다음 .index() 값이 0이 아니면 그룹 단어가 아님
+        check = string[0]
 
-    # [loop] 한 줄의 알파벳에 접근
-    for element in elements:
-        for alpha in string:
-            if alpha == element:
-                continue
-            else:
-                status = 1
-                # 어떻게 연속되지 않는단걸 알리지?
-            
-            
+        # print('\nBefore')
+        # print('----------------------------------------------------------------------------------------------------')
+        # print(f'check: {check}\tindex: {string.find(check)}\t checker status: {checker}')
+        # print('----------------------------------------------------------------------------------------------------')
+
+        # [condition 1] 연속된다면 왼쪽의 수를 지움
+        if check == string[0]:
+            # print(f'\torigin string: {string}', end = "\t")
+            string = string[1:]
+            # print(f'\tchanged string: {string}')
         
+        # print('\nAfter')
+        # print('----------------------------------------------------------------------------------------------------')
+        # print(f'check: {check}\tindex: {string.find(check)}\t checker status: {checker}')
+        # print('----------------------------------------------------------------------------------------------------')
+        
+        # [condition 2] 연속하지 않고 다른 위치에 같은 알파벳이 있다면 총 개수 cnt에 포함시키지 않음
+        if string.find(check) != -1:
+            checker = 0
+            break
+        else:
+            checker = 1
+    
+    # print(f'\n************************************ [End loop] ************************************\n')
+        
+    # 연속이 종료되면 총 개수 cnt에 1을 더함
+    if checker == 0:
+        cnt -= 1        
 
 
 # OUTPUT
-# print(count)
+print(cnt)
