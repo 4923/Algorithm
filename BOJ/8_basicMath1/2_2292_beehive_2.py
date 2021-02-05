@@ -30,3 +30,28 @@ https://www.acmicpc.net/JudgeOnline/upload/201009/3(2).png
 # input
 import sys
 n = int(sys.stdin.readline().strip())
+
+# variable
+cnt = 0
+curr = 2 + 6 * cnt
+
+# loop
+while True:
+    max_num = 6 * cnt
+
+    # print(f'curr: {curr} cnt: {cnt} max_num: {max_num}')
+
+    if n == 1:
+        print(1)
+        break
+
+    elif n >= curr:
+        curr += max_num
+        cnt += 1
+        continue
+    
+    else:
+        # print('else')
+        print(cnt)
+        break
+
