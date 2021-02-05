@@ -47,10 +47,15 @@ for string in strings:
         # print('----------------------------------------------------------------------------------------------------')
 
         # [condition 1] 연속된다면 왼쪽의 수를 지움
-        if check == string[0]:
-            # print(f'\torigin string: {string}', end = "\t")
-            string = string[1:]
-            # print(f'\tchanged string: {string}')
+        try:
+            if check == string[1]:
+                # print(f'\torigin string: {string}', end = "\t")
+                string = string[1:]
+                # print(f'\tchanged string: {string}')
+        except:
+            # string index out of range
+            if check == string[1]:
+                string = [ ]
         
         # print('\nAfter')
         # print('----------------------------------------------------------------------------------------------------')
