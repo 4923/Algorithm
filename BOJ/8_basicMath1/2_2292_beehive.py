@@ -34,7 +34,7 @@ n = int(sys.stdin.readline().strip())
 # 식: 1 + 6 * cnt + (1 ~ 6 * cnt)
 # 조작할 것 : cnt
 
-cnt = 0
+cnt = 1
 while True:
     if n >= 6 * cnt:
         n -= 6 * cnt
@@ -44,6 +44,9 @@ while True:
         # print(f'[else] n: {n}, cnt: {cnt}')
         print(cnt + 1)
         break
+
+# 오답: 이렇게하면 안이아니라 밖에서부터 건너오기 때문에 오답임.
+# 반례 (입력값): 7, 93
 
 # [반복문]
 # # input
