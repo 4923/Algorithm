@@ -28,21 +28,37 @@ import sys
 fixed_cost, variable_cost, price = map(int, sys.stdin.readline().strip().split())
 # print(f'[INPUT CHECK]\n\tfixed_cost : {fixed_cost}, variable_cost : {variable_cost}, price: {price}')
 
-total = 1
-netprofit = - fixed_cost
+# [순이익을 이용한 풀이]
+netprofit = price - variable_cost
 
-while True:
-    # print(f'[VARIABLE CHECK]\n\tfixed_cost : {fixed_cost}, variable_cost : {variable_cost}, price: {price}\n\ttotal : {total}')
-    if price <= variable_cost:  # 1 / (price - variable_cost) < x
-        print(-1)
-        break
+# 무조건 손해가 발생하는 경우
+if netprofit <= 0:
+    breakEvenPoint = -1
 
-    netprofit += (price - variable_cost)  # 순이익 더함
-    # print(f'[ANSWER]\n\ttotal: {total}\n\tnetprofit: {netprofit}')
+else:
+    # 고정비용/순이익 + 1 = 손익분기점
+    breakEvenPoint = fixed_cost // netprofit + 1
     
-    # output
-    if netprofit > 0:
-        print(total)
-        break
+print(breakEvenPoint)
 
-    total += 1
+# [반복문을 활용한 풀이 : 시간초과]
+# 
+# total = 1
+# netprofit = - fixed_cost
+# 
+# while True:
+#     # print(f'[VARIABLE CHECK]\n\tfixed_cost : {fixed_cost}, variable_cost : {variable_cost}, price: {price}\n\ttotal : {total}')
+#     if price <= variable_cost:  # 1 / (price - variable_cost) < x
+#         print(-1)
+#         break
+
+#     netprofit += (price - variable_cost)  # 순이익 더함
+#     # print(f'[ANSWER]\n\ttotal: {total}\n\tnetprofit: {netprofit}')
+    
+#     # output
+#     if netprofit > 0:
+#         print(total)
+#         break
+
+#     total += 1
+
