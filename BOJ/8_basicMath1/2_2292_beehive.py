@@ -31,19 +31,36 @@ https://www.acmicpc.net/JudgeOnline/upload/201009/3(2).png
 import sys
 n = int(sys.stdin.readline().strip())
 
+# 식: 1 + 6 * cnt + (1 ~ 6 * cnt)
+# 조작할 것 : cnt
+
 cnt = 0
+while True:
+    if n >= 6 * cnt:
+        n -= 6 * cnt
+        # print(f'new n: {n}, cnt: {cnt}')
+        cnt += 1
+    else:
+        # print(f'[else] n: {n}, cnt: {cnt}')
+        print(cnt + 1)
+        break
 
-# 모르겠다~~~
+# [반복문]
+# # input
+# import sys
+# n = int(sys.stdin.readline().strip())
 
-status = 1
+# cnt = 0
+# status = 1
 
-while status:
+# while status:
 
-    max_room_number = 6 * cnt
-    room = 1 + max_room_number
-    for i in range(max_room_number):
-        if room + i == n:
-            print(cnt)
-            status = 0
-            break
-    cnt += 1
+#     max_room_number = 6 * cnt
+#     room = 1 + max_room_number
+#     for i in range(max_room_number):
+#         if room + i == n:
+#             print(cnt)
+#             status = 0
+#             break
+            
+#     cnt += 1
