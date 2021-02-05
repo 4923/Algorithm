@@ -41,51 +41,36 @@ for string in strings:
         # .index() 를 사용해서 왼쪽부터 지워나갔을 때 다음 .index() 값이 0이 아니면 그룹 단어가 아님
         check = string[0]
 
-        print('\nBefore')
-        print('----------------------------------------------------------------------------------------------------')
-        print(f'check: {check}\tindex: {string.find(check)}\t checker status: {checker}')
-        print('----------------------------------------------------------------------------------------------------')
-
-        # [condition 1] 연속된다면 왼쪽의 수를 지움
-        # try:
-        #     if check == string[1]:
-        #         print(f'\torigin string: {string}', end = "\t")
-        #         string = string[1:]
-        #         print(f'\tchanged string: {string}')
-        #         continue
-        # except:
-        #     # string index out of range
-        #     if check == string[1]:
-        #         string = [ ]
-        #         continue
+        # print('\nBefore')
+        # print('----------------------------------------------------------------------------------------------------')
+        # print(f'check: {check}\tindex: {string.find(check)}\t checker status: {checker}')
+        # print('----------------------------------------------------------------------------------------------------')
 
         # 연속이 되든 안되든 왼쪽의 수는 지워나가야함.
         # 연속일경우 연속되는만큼 연속되는 값을 지움. ex) ppy -> py -> y
-        print(f'\torigin string: {string}', end = "\t")
+        # print(f'\torigin string: {string}', end = "\t")
         string = string[1:]
-        print(f'\tchanged string: {string}')
-        
-        
+        # print(f'\tchanged string: {string}')
 
-        print('\nAfter')
-        print('----------------------------------------------------------------------------------------------------')
-        print(f'check: {check}\tindex: {string.find(check)}\t checker status: {checker}')
-        print('----------------------------------------------------------------------------------------------------')
+        # print('\nAfter')
+        # print('----------------------------------------------------------------------------------------------------')
+        # print(f'check: {check}\tindex: {string.find(check)}\t checker status: {checker}')
+        # print('----------------------------------------------------------------------------------------------------')
         
-        # [condition 2] 연속하지 않고 다른 위치에 같은 알파벳이 있다면 총 개수 cnt에 포함시키지 않음
+        # [condition 1] 연속하지 않고 다른 위치에 같은 알파벳이 있다면 총 개수 cnt에 포함시키지 않음
         if string.find(check) > 0:
             checker = 0
-            print(f'\t\tchecker turns to 0: string.find(check) is {string.find(check)}')
+            # print(f'\t\tchecker turns to 0: string.find(check) is {string.find(check)}')
             break
         else:
             checker = 1
     
-    print(f'\n************************************ [End loop] ************************************\n')
+    # print(f'\n************************************ [End loop] ************************************\n')
         
     # 연속이 종료되면 총 개수 cnt에 1을 더함
     if checker == 0:
         cnt -= 1        
-        print('\t\n[IS NOT Group Word] ', cnt, '\n')
+        # print('\t\n[IS NOT Group Word] ', cnt, '\n')
 
 
 # OUTPUT
