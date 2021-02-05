@@ -31,20 +31,42 @@ https://www.acmicpc.net/JudgeOnline/upload/201009/3(2).png
 import sys
 n = int(sys.stdin.readline().strip())
 
-# 식: 1 + 6 * cnt + (1 ~ 6 * (cnt+1)) <-- (try3) 식 잘못 세운 부분 찾음
+# -------------------------------------------------------------------------
+# @yun-aha : 사진보다 더 큰 숫자는 안풀림
+cnt = 2
+a=8
+while n>0:
+    if n==1:
+        cnt=1
+        print(cnt)
+        break
+    elif 1<n<8:
+        print(cnt)
+        break
+    else :
+        if n>=a:
+            a+=6*cnt
+            cnt+=1
+            print(f'new a: {a}, cnt: {cnt}')
+        else:
+            print(cnt)
+            break
 
+
+# -------------------------------------------------------------------------
+# 식: 1 + 6 * cnt + (1 ~ 6 * (cnt+1)) <-- (try3) 식 잘못 세운 부분 찾음
 # [try 3] 아니면 n에서 cnt * 6을 빼고, 남은 n이 cnt * 6보다 크면 cnt를 증가시키고 작으면 멈춰서 cnt를 구하는 방법?
 
-cnt = 1
-
-# [try 3] 연산이 번거로우므로 n은 첫값인 1을 빼고 시작
-n -= 1
+cnt = 2  # [try 4: 1에서 2로 초기값 교체]
 
 while True:
 
     # [try 3 - 기준] 각 껍질의 최대값
     # 아... 이거 식을 잘못 세웠음 (상단 참고)
-    max_num = (cnt-1) * 6 + cnt * 6
+    # max_num = (cnt-1) * 6 + cnt * 6
+    max_num = cnt * 6  # [try 4: 식 교체]
+
+    print(f'\t[Check] cnt: {cnt}, max_num: {max_num}')
 
     # [try 3 - 1] n이 max_num보다 크면 n에서 max_num을 뺌
     # try 2에서 시간 초과였으므로 연산 횟수를 줄이기 위함
@@ -56,8 +78,7 @@ while True:
     # [try 3 - 2] n이 max_num보다 작으면 : 해당 껍질 안에 있으면
     else:
         print(f'[else] n: {n}, cnt: {cnt}, max_num: {max_num}')
-        # [try 3 - output] 시작할 때 1을 뺐으므로 (1일 때 cnt 1) 다시 1을 더해줌
-        print(cnt + 1)
+        print(cnt)
         break
 
 # [try 1] 오답: n에서 빼기 시작하면 안이 아니라 밖에서부터 건너오기 때문에 오답임. 
@@ -65,6 +86,29 @@ while True:
 # ㄴ 아... 상관 없지 않나 근데...?  어차피 순서가 아니라 개수 찾기인데
 # ㄴ 비교대상이 오름차순으로 커져서 안되는건가? 아니 그래도 개수인데?
 # 반례 (입력값): 7, 93
+
+# [try 4]
+# 반례
+'''
+57
+new a: 20, cnt: 3
+new a: 38, cnt: 4
+new a: 62, cnt: 5
+5
+        [Check] cnt: 1, max_num: 6
+new n: 51, cnt: 1, max_num: 6
+        [Check] cnt: 2, max_num: 18
+new n: 33, cnt: 2, max_num: 18
+        [Check] cnt: 3, max_num: 30
+new n: 3, cnt: 3, max_num: 30
+        [Check] cnt: 4, max_num: 42
+[else] n: 3, cnt: 4, max_num: 42
+4
+'''
+
+# 저기 max_num : 30이 끼면 안되는데...
+
+# -------------------------------------------------------------------------
 
 # [반복문]
 # # input
