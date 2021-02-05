@@ -32,20 +32,35 @@ import sys
 n = int(sys.stdin.readline().strip())
 
 # 식: 1 + 6 * cnt + (1 ~ 6 * cnt)
-# 조작할 것 : cnt
 
-cnt = 1
+# [try 3] 아니면 n에서 cnt * 6을 빼고, 남은 n이 cnt * 6보다 크면
+
+cnt = 0
 while True:
-    if n >= 6 * cnt:
-        n -= 6 * cnt
-        # print(f'new n: {n}, cnt: {cnt}')
-        cnt += 1
-    else:
-        # print(f'[else] n: {n}, cnt: {cnt}')
-        print(cnt + 1)
+
+    # [try 2 - 기준] 각 껍질의 최대값 ( 1 + cnt * 6 + cnt * 6 )
+    max_num = 1 + cnt * 6 * 2
+
+    # [try 2 - 0] 예외 처리
+    if n  == 1:
+        cnt = 1
+        print(cnt)
         break
 
-# 오답: 이렇게하면 안이아니라 밖에서부터 건너오기 때문에 오답임.
+    # [try 2 - 1] 6*cnt가 n에 가까워지도록 cnt를 증가시키고
+    elif n > max_num:
+        n -= max_num
+        print(f'new n: {n}, cnt: {cnt}, max_num: {max_num}')
+        cnt += 1
+
+    # [try 2 - 2] 6*cnt가 n보다 커질땐 아니 이렇게하면 안되는데
+    # 최댓값을 생각할거면 n/2나 cnt*6*2를 기준으로 해야할듯
+    else:
+        print(f'[else] n: {n}, cnt: {cnt}, max_num: {max_num}')
+        print(cnt)
+        break
+
+# [try 1] 오답: n에서 빼기 시작하면 안이 아니라 밖에서부터 건너오기 때문에 오답임.
 # 반례 (입력값): 7, 93
 
 # [반복문]
