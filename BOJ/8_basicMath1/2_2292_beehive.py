@@ -31,36 +31,39 @@ https://www.acmicpc.net/JudgeOnline/upload/201009/3(2).png
 import sys
 n = int(sys.stdin.readline().strip())
 
-# 식: 1 + 6 * cnt + (1 ~ 6 * cnt)
+# 식: 1 + 6 * cnt + (1 ~ 6 * (cnt+1)) <-- (try3) 식 잘못 세운 부분 찾음
 
-# [try 3] 아니면 n에서 cnt * 6을 빼고, 남은 n이 cnt * 6보다 크면
+# [try 3] 아니면 n에서 cnt * 6을 빼고, 남은 n이 cnt * 6보다 크면 cnt를 증가시키고 작으면 멈춰서 cnt를 구하는 방법?
 
-cnt = 0
+cnt = 1
+
+# [try 3] 연산이 번거로우므로 n은 첫값인 1을 빼고 시작
+n -= 1
+
 while True:
 
-    # [try 2 - 기준] 각 껍질의 최대값 ( 1 + cnt * 6 + cnt * 6 )
-    max_num = 1 + cnt * 6 * 2
+    # [try 3 - 기준] 각 껍질의 최대값
+    # 아... 이거 식을 잘못 세웠음 (상단 참고)
+    max_num = (cnt-1) * 6 + cnt * 6
 
-    # [try 2 - 0] 예외 처리
-    if n  == 1:
-        cnt = 1
-        print(cnt)
-        break
-
-    # [try 2 - 1] 6*cnt가 n에 가까워지도록 cnt를 증가시키고
-    elif n > max_num:
+    # [try 3 - 1] n이 max_num보다 크면 n에서 max_num을 뺌
+    # try 2에서 시간 초과였으므로 연산 횟수를 줄이기 위함
+    if n > max_num:
         n -= max_num
         print(f'new n: {n}, cnt: {cnt}, max_num: {max_num}')
         cnt += 1
 
-    # [try 2 - 2] 6*cnt가 n보다 커질땐 아니 이렇게하면 안되는데
-    # 최댓값을 생각할거면 n/2나 cnt*6*2를 기준으로 해야할듯
+    # [try 3 - 2] n이 max_num보다 작으면 : 해당 껍질 안에 있으면
     else:
         print(f'[else] n: {n}, cnt: {cnt}, max_num: {max_num}')
-        print(cnt)
+        # [try 3 - output] 시작할 때 1을 뺐으므로 (1일 때 cnt 1) 다시 1을 더해줌
+        print(cnt + 1)
         break
 
-# [try 1] 오답: n에서 빼기 시작하면 안이 아니라 밖에서부터 건너오기 때문에 오답임.
+# [try 1] 오답: n에서 빼기 시작하면 안이 아니라 밖에서부터 건너오기 때문에 오답임. 
+# [try 3]
+# ㄴ 아... 상관 없지 않나 근데...?  어차피 순서가 아니라 개수 찾기인데
+# ㄴ 비교대상이 오름차순으로 커져서 안되는건가? 아니 그래도 개수인데?
 # 반례 (입력값): 7, 93
 
 # [반복문]
