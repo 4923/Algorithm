@@ -35,24 +35,25 @@ def num_denominator(x, sub):
     #     return sub+1
     # else:
     #     return num_denominator(x-sub, sub+1)
-    for i in range(x):
-        if x < i:
+    for i in range(1, x+1):
+        if x <= i:
             return i+1
         else:
             x -= i
             i += 1
 
-
-
 def fraction(x, denominator_numerator):
+    if x == 1:
+        fraction = '1/1'
+        return fraction
 
     # 앞에서 이미 한 사이클 (ex 1/4 2/3 3/2 4/1) 돈 숫자는 무시함
-    for cnt in range(1, denominator_numerator):
-        x -= cnt
+    for cnt in range(denominator_numerator):
 
-        if x <= cnt:
+        if x < denominator_numerator:
             fraction_num = x
-    
+            # print(f'fraction: {fraction_num}, denomitor_numerator: {denominator_numerator}, cnt: {cnt}')
+
             if (denominator_numerator-1) % 2 != 0:  # 홀수번째면 분자가 오름차순으로 증가
                 fraction = f'{denominator_numerator - fraction_num}/{fraction_num}'
                 print(fraction)
@@ -61,6 +62,9 @@ def fraction(x, denominator_numerator):
                 print(fraction)
             
             break
+
+        x -= cnt
+        # print(f'fraction: {x}, denomitor_numerator: {denominator_numerator}, cnt: {cnt}')
 
 def main():
     x = int(sys.stdin.readline().strip())
@@ -71,3 +75,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# 반례 목록
+# 10에서 출력값 0/5가 나옴
+# 해결: if x <= cnt를 if x <= denominator_numerator로 변경. cnt는 변하는 값이라 비교대상으로 적합하지 않다.
