@@ -31,10 +31,18 @@ import sys
 # 분자 + 분모: 2, 3, 4, 5... ...
 # 분자와 분모의 합계 찾기: (x번째 분수, 1)
 def num_denominator(x, sub):
-    if x < sub:
-        return sub+1
-    else:
-        return num_denominator(x-sub, sub+1)
+    # if x < sub:
+    #     return sub+1
+    # else:
+    #     return num_denominator(x-sub, sub+1)
+    for i in range(x):
+        if x < i:
+            return i+1
+        else:
+            x -= i
+            i += 1
+
+
 
 def fraction(x, denominator_numerator):
 
