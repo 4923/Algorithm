@@ -46,7 +46,7 @@ def num_denominator(x, sub):
             i += 1
 
 # 분수를 출력하는 함수
-def fraction(x, denominator_numerator):
+def fraction(x, denominator_plus_numerator):
     # 예외
     if x == 1:
         fraction = '1/1'
