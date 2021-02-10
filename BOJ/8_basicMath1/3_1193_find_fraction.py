@@ -30,14 +30,15 @@ import sys
 
 # 분자 + 분모: 2, 3, 4, 5... ...
 # 분자와 분모의 합은 일정하고 순차적으로 늘어난다.
-# 분자와 분모의 합계를 찾는 함수 (x번째 분수, 1)
-def num_denominator(x, sub):
+# 분자와 분모의 합계를 찾는 함수 (x번째 분수)
+def num_denominator(x):
     # 재귀는 recursion error 발생해서 폐기
     # if x < sub:
     #     return sub+1
     # else:
     #     return num_denominator(x-sub, sub+1)
 
+    # [for] (분모와 분자가 뒤집힐 때 까지) 한 사이클을 돌아 신경쓰지 않아도 되는 값들은 지운다. 2부터 시작.
     for i in range(1, x+1):
         if x <= i:
             return i+1
@@ -46,36 +47,39 @@ def num_denominator(x, sub):
             i += 1
 
 # 분수를 출력하는 함수
+# x : 사용자 입력값 (x번째 분수를 구하여라.)
 def fraction(x, denominator_plus_numerator):
     # 예외
     if x == 1:
         fraction = '1/1'
-        return fraction
+        return print(fraction)
 
-    # 앞에서 이미 한 사이클 (ex 1/4 2/3 3/2 4/1) 돈 숫자는 무시함
-    for cnt in range(denominator_numerator):
+    # [for] 앞에서 이미 한 사이클 (ex 1/4 2/3 3/2 4/1) 돈 숫자는 무시함
+    for cnt in range(1, denominator_plus_numerator+1):
+        # print(f'x: {x}, denomitor_numerator: {denominator_plus_numerator}, cnt: {cnt}')
 
-        if x < denominator_numerator:
+        if x < denominator_plus_numerator:
             fraction_num = x
-            print(f'fraction: {fraction_num}, denomitor_numerator: {denominator_numerator}, cnt: {cnt}')
+            # print(f'fraction: {fraction_num}, denomitor_numerator: {denominator_plus_numerator}, cnt: {cnt}')
 
-            if (denominator_numerator-1) % 2 != 0:  # 홀수번째면 분자가 오름차순으로 증가
-                fraction = f'{denominator_numerator - fraction_num}/{fraction_num}'
+            # 첫번째 분수의 분모 분자 합이 2이므로
+            if (denominator_plus_numerator-1) % 2 != 0:  # 홀수번째면 분자가 오름차순으로 증가
+                fraction = f'{denominator_plus_numerator - fraction_num}/{fraction_num}'
                 print(fraction)
             else:  # 짝수번째면 분모가 오름차순으로 증가 (홀수일때와 분자 분모 순서 뒤바뀜)
-                fraction = f'{fraction_num}/{denominator_numerator - fraction_num}'
+                fraction = f'{fraction_num}/{denominator_plus_numerator - fraction_num}'
                 print(fraction)
             
             break
 
         x -= cnt
-        # print(f'fraction: {x}, denomitor_numerator: {denominator_numerator}, cnt: {cnt}')
+        # print(f'fraction: {x}, denomitor_numerator: {denominator_plus_numerator}, cnt: {cnt}')
 
 def main():
     x = int(sys.stdin.readline().strip())
-    denominator_numerator = num_denominator(x, 1)
-    # print(denominator_numerator)
-    fraction(x, denominator_numerator)
+    denominator_plus_numerator = num_denominator(x)
+    # print(denominator_plus_numerator)  # 입력값이 14일 때 6
+    fraction(x, denominator_plus_numerator)
 
 
 if __name__ == '__main__':
