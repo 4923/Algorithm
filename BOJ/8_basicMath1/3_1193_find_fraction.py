@@ -28,9 +28,9 @@ X가 주어졌을 때, X번째 분수를 구하는 프로그램을 작성하시�
 
 import sys
 
+# [분자와 분모의 합계를 찾는 함수 (x번째 분수)]
 # 분자 + 분모: 2, 3, 4, 5... ...
 # 분자와 분모의 합은 일정하고 순차적으로 늘어난다.
-# 분자와 분모의 합계를 찾는 함수 (x번째 분수)
 def num_denominator(x):
     # 재귀는 recursion error 발생해서 폐기
     # if x < sub:
@@ -46,7 +46,7 @@ def num_denominator(x):
             x -= i
             i += 1
 
-# 분수를 출력하는 함수
+# [분수를 출력하는 함수]
 # x : 사용자 입력값 (x번째 분수를 구하여라.)
 def fraction(x, denominator_plus_numerator):
     # 예외
@@ -59,6 +59,7 @@ def fraction(x, denominator_plus_numerator):
         # print(f'x: {x}, denomitor_numerator: {denominator_plus_numerator}, cnt: {cnt}')
 
         if x < denominator_plus_numerator:
+            # fraction : 한 사이클 안의 몇 번째 분수인가
             fraction_num = x
             # print(f'fraction: {fraction_num}, denomitor_numerator: {denominator_plus_numerator}, cnt: {cnt}')
 
