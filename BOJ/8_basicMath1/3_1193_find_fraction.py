@@ -29,12 +29,15 @@ X가 주어졌을 때, X번째 분수를 구하는 프로그램을 작성하시�
 import sys
 
 # 분자 + 분모: 2, 3, 4, 5... ...
-# 분자와 분모의 합계 찾기: (x번째 분수, 1)
+# 분자와 분모의 합은 일정하고 순차적으로 늘어난다.
+# 분자와 분모의 합계를 찾는 함수 (x번째 분수, 1)
 def num_denominator(x, sub):
+    # 재귀는 recursion error 발생해서 폐기
     # if x < sub:
     #     return sub+1
     # else:
     #     return num_denominator(x-sub, sub+1)
+
     for i in range(1, x+1):
         if x <= i:
             return i+1
@@ -42,7 +45,9 @@ def num_denominator(x, sub):
             x -= i
             i += 1
 
+# 분수를 출력하는 함수
 def fraction(x, denominator_numerator):
+    # 예외
     if x == 1:
         fraction = '1/1'
         return fraction
@@ -52,7 +57,7 @@ def fraction(x, denominator_numerator):
 
         if x < denominator_numerator:
             fraction_num = x
-            # print(f'fraction: {fraction_num}, denomitor_numerator: {denominator_numerator}, cnt: {cnt}')
+            print(f'fraction: {fraction_num}, denomitor_numerator: {denominator_numerator}, cnt: {cnt}')
 
             if (denominator_numerator-1) % 2 != 0:  # 홀수번째면 분자가 오름차순으로 증가
                 fraction = f'{denominator_numerator - fraction_num}/{fraction_num}'
@@ -78,5 +83,6 @@ if __name__ == '__main__':
 
 
 # 반례 목록
+# [1] 입력값 10
 # 10에서 출력값 0/5가 나옴
 # 해결: if x <= cnt를 if x <= denominator_numerator로 변경. cnt는 변하는 값이라 비교대상으로 적합하지 않다.
