@@ -26,5 +26,7 @@ import sys  # stdin.readline()
 testcase = int(sys.stdin.readline().strip())
 floorNum, roomNum, guestNum = map(int, sys.stdin.readline().strip())
 
+# [풀이]
+
 # [출력]
 # N번째 손님에게 배정되어야 하는 방 번호를 한 줄에 하나씩 출력
