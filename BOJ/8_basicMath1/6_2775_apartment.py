@@ -24,9 +24,26 @@ import sys  # stdin.readline()
 # [입력]
 # 1 <= floorNum, roomNum <= 99, 1 <= guestNum <= floorNum * roomNum
 testcase = int(sys.stdin.readline().strip())
-floorNum, roomNum, guestNum = map(int, sys.stdin.readline().strip())
 
-# [풀이]
+for _ in range(testcase):
+    # [입력]
+    floorNum, roomNum, guestNum = map(int, sys.stdin.readline().strip().split())
 
-# [출력]
-# N번째 손님에게 배정되어야 하는 방 번호를 한 줄에 하나씩 출력
+    # [풀이]
+    # [1] 밑에서부터 몇번째 층에 묵을지 계산
+    floor = guestNum % floorNum
+    # print(f'floor: {floor}')
+
+    # [2] 해당 층의 몇 호실에 묵을지 계산
+    room = guestNum // floorNum + 1
+    # print(f'room: {room}')
+
+    # [결과]
+    # 형변환
+    floor = str(floor)
+    room = str(room).zfill(2)
+
+
+    # [출력]
+    # N번째 손님에게 배정되어야 하는 방 번호를 한 줄에 하나씩 출력
+    print(floor+room)
