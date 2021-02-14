@@ -16,13 +16,7 @@ ACM 호텔 매니저 지우는 손님이 도착하는 대로 빈 방을 배정�
 
 import sys  # stdin.readline()
 
-# [입력]
-# 1 <= floorNum, roomNum <= 99, 1 <= guestNum <= floorNum * roomNum
-testcase = int(sys.stdin.readline().strip())
-
-
-results = []
-for _ in range(testcase):
+for _ in range(int(sys.stdin.readline().strip())):
     # [입력]
     floorNum, roomNum, guestNum = map(int, sys.stdin.readline().strip().split())
 
@@ -31,17 +25,20 @@ for _ in range(testcase):
     floor = guestNum % floorNum
     # print(f'floor: {floor}')
 
+
     # [2] 해당 층의 몇 호실에 묵을지 계산
     room = guestNum // floorNum + 1
     # print(f'room: {room}')
+    
+    # [주의] 나머지 연산이므로 최상층에 묵었을 경우 floor 값이 0이 됨
+    if floor == 0:
+        floor = floorNum
+        room -= 1
 
     # [결과]
-    # 형변환
-    floor = str(floor)
-    room = str(room).zfill(2)
+    # 형변환, 세미콜론으로 줄 변경할 수 있음, .zfill(자릿수)로 빈 자리에 0 입력 가능
+    floor = str(floor); room = str(room).zfill(2)
 
-    results.append(floor+room)
-
-# [출력]
-# N번째 손님에게 배정되어야 하는 방 번호를 한 줄에 하나씩 출력
-[print(result) for result in results]
+    # [출력]
+    # N번째 손님에게 배정되어야 하는 방 번호를 한 줄에 하나씩 출력
+    print(floor+room)
