@@ -14,3 +14,17 @@ https://www.acmicpc.net/problem/2775
 출력
 각각의 Test case에 대해서 해당 집에 거주민 수를 출력하라.
 '''
+
+# 규칙 1: 층 수는 신경쓰지 않는다
+# 규칙 2: 거리가 같을 때는 층수가 낮은 방을 선호한다.
+# => N 모양의 지그재그 순환
+
+import sys  # stdin.readline()
+
+# [입력]
+# 1 <= floorNum, roomNum <= 99, 1 <= guestNum <= floorNum * roomNum
+testcase = int(sys.stdin.readline().strip())
+floorNum, roomNum, guestNum = map(int, sys.stdin.readline().strip())
+
+# [출력]
+# N번째 손님에게 배정되어야 하는 방 번호를 한 줄에 하나씩 출력
