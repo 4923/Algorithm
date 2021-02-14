@@ -24,16 +24,16 @@ for _ in range(int(sys.stdin.readline().strip())):
 
     # 아파트 grid 생성: 거주인원
     apartment = [
-        [room for room in range(rooms+2)]
+        [room for room in range(rooms+1)]
         for _ in range(floors+1)
     ]
-    # print(apartment)
+    print(apartment)
 
     # index로 접근
     # floor는 0부터 시작하며 room은 1부터 시작한다.
     # 0층은 호실 번호만큼 거주하므로 제외 (range(1, floors))
     for floor in range(1, floors+1):
-        for room in range(1, rooms+2):
+        for room in range(1, rooms+1):
 
             # 1호는 모두 한 명씩 거주
             if room == 1:
