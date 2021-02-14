@@ -29,12 +29,16 @@ import sys
 
 def main():
 
+    # [입력] request 번째 분수를 구하시오
+    request = int(sys.stdin.readline().strip())
+
+    # [풀이]
+    # 규칙 1: 분자와 분모의 합 cycle 은 일정하며 2부터 시작한다.
+    # 규칙 2: cycle 이 짝수일 때 -> 분모가 1부터 cycle -1 까지 오름차순 / 홀수일때 -> 분자가 같은 범위에서 오름차순 정렬
+    # 규칙 3: 분모 또는 분자의 최대값은 cycle -1이다.
+    # 규칙 4: request는 1부터 cycle-1의 합보다 크다.
+    # 규칙 5: request - '1부터 cycle-1의 합'은 분자와 분모의 차이다.
+
 
 if __name__ == '__main__':
     main()
-
-
-# 반례 목록
-# [1] 입력값 10
-# 10에서 출력값 0/5가 나옴
-# 해결: if x <= cnt를 if x <= denominator_numerator로 변경. cnt는 변하는 값이라 비교대상으로 적합하지 않다.
