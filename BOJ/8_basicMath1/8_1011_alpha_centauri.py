@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*- 
+
 '''
 문제
 우현이는 어린 시절, 지구 외의 다른 행성에서도 인류들이 살아갈 수 있는 미래가 오리라 믿었다. 그리고 그가 지구라는 세상에 발을 내려 놓은 지 23년이 지난 지금, 세계 최연소 ASNA 우주 비행사가 되어 새로운 세계에 발을 내려 놓는 영광의 순간을 기다리고 있다.
@@ -11,4 +13,19 @@
 출력
 각 테스트 케이스에 대해 x지점으로부터 y지점까지 정확히 도달하는데 필요한 최소한의 공간이동 장치 작동 횟수를 출력한다.
 '''
+
+# 도착할 때 1광년만 이동해야 하므로 이동 거리를 1부터 y/2까지로 잡고 작동 횟수는 2를 곱한다.
+
+import sys
+
+testcase = int(sys.stdin.readline().strip())
+# each input of tc
+# 2dim list [[start, end]]
+testcases = [
+    list(map(int, sys.stdin.readline().strip().split()))
+    for _ in range(testcase)
+]
+
+print(testcases)
+
 
