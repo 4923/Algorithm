@@ -14,19 +14,35 @@ N의 소인수분해 결과를 한 줄에 하나씩 오름차순으로 출력한
 # [입력]
 num = int(input())
 
-# [소인수분해]
+# [소인수분해] 재귀
+# def factorization(num, divisor):
+    # # print(f'num: {num} divisor: {divisor}')
+
+    # # 종료조건
+    # if num == 1:
+    #     return
+
+    # if num % divisor == 0:
+    #     divisors.append(divisor)
+    #     return factorization(num//divisor, divisor)
+    # else:
+    #     return factorization(num, divisor+1)
+
+# [소인수분해] while
 def factorization(num, divisor):
-    # print(f'num: {num} divisor: {divisor}')
+    
+    while True:
+        if num == 1:
+            return
+            
+        else:
+            if num % divisor == 0:
+                divisors.append(divisor)
+                num /= divisor
+            else:
+                divisor += 1
 
-    # 종료조건
-    if num == 1:
-        return
 
-    if num % divisor == 0:
-        divisors.append(divisor)
-        return factorization(num//divisor, divisor)
-    else:
-        return factorization(num, divisor+1)
 
 def main():
     global divisors
