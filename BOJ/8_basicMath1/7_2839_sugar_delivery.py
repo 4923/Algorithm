@@ -22,22 +22,28 @@ n = int(input())
 # 사용하는 봉지의 개수
 result = 0 
 while n > 0 :
+
+    # [if] 남은 무게를 5kg봉지로 해결할 수 있는지 확인
+    # 위 조건을 1순위로 확인하고 3kg 봉지를 사용해야 함
+    if n % 5 == 0:
+        result += n//5
+        # print(f'\t[break] n == {n}, n//5 == {n//5}')
+        break
+
     # 3kg 봉지를 최소한으로 사용한다.
     n -= 3
     result += 1
     # print(f'n: {n} result: {result}')
 
-    # [if] 남은 무게를 5kg봉지로 해결할 수 있는지 확인
-    if n % 5 == 0:
-        result += n//5
-        # print(f'[break] n == {n}, n//5 == {n//5}')
-        break
-
     # [exception] 3과 5로 분할할 수 없을 때
-    elif n < 0 :
+    if n < 0 :
         result = -1
-        # print(f'[exception] n == {n} result == {result}')
+        # print(f'\n\t[exception] n == {n} result == {result}')
         break
 
 # [출력]
 print(result)
+
+# -----------------
+# 반례 확인
+# 1) 입력값 100 / 출력 22 -> 정답 20
