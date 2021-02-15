@@ -14,18 +14,90 @@
 각 테스트 케이스에 대해 x지점으로부터 y지점까지 정확히 도달하는데 필요한 최소한의 공간이동 장치 작동 횟수를 출력한다.
 '''
 
-# 도착할 때 1광년만 이동해야 하므로 이동 거리를 1부터 y/2까지로 잡고 작동 횟수는 2를 곱한다.
+# 1+2+3+4 ... 만큼 늘려서 가고 남는 거리는 시작할 때 1광년씩 미리 가 둔다 (ex: 13광년은 1 + 1 + 2 + 3 + 3 + 2 + 1)
+# 도착할 때 1광년만 이동해야 하므로 이동 거리를 1부터 y/2까지로 잡고 작동 횟수는 2를 곱한다. <- ?
 
 import sys
 
+# # [input]
 testcase = int(sys.stdin.readline().strip())
-# each input of tc
-# 2dim list [[start, end]]
-testcases = [
-    list(map(int, sys.stdin.readline().strip().split()))
-    for _ in range(testcase)
-]
-
-print(testcases)
 
 
+
+def move(start, end):
+
+    # [변수 설정]
+    move_cnt = 0; total = move_cnt
+
+    # minimum move from start to y/2 point
+    half_distance = (end - start)//2
+    # print(f'half_distance = {half_distance}, move_cnt = {move_cnt}')
+
+    moved_distance = 0
+    for l in range(1, half_distance+1):
+        moved_distance += l
+        move_cnt += 1
+        # print(f'\tmoved_distance = {moved_distance} l = {l} move_cnt = {move_cnt}')
+
+        # 더 가야할 거리가 남은 거리보다 크면 move_cnt에 1을 추가한다 (해당 광년만큼 이동할 때 두 번 이동) 
+        if half_distance - moved_distance <= l + 1:
+            move_cnt += 1
+            total = move_cnt * 2
+            # print(f'[break] total: {total}', end="\t")
+            break
+    
+    # [절반연산 복구]
+    if (end - start) % 2 != 0:
+        total += 1  # 맨 마지막에 추가해야 2배할 때 문제 생기지 않음
+    
+    return total
+
+def main():
+    # [loop]
+    # each input of tc
+    for _ in range(testcase):
+        start, end = map(int, sys.stdin.readline().strip().split())
+
+
+        # [예외] 거리 end - start 가 0~5 일 때:
+        if end - start <= 5:
+            # [변수 설정] 시작과 끝 1씩 이동하므로 total의 기본값 = 2
+            current = 0; total = 2
+            for d in range(1, 1 + end - start):
+                total += 1
+                current += d
+                # print(f'total: {total}, d: {d}')
+                if end - current > d:
+                    # print(f'[break] total: {total}', end="\t")
+                    break
+            # [예외] 1 1 2 1 로 겹치는 수가 있는데 절반 자르면 애매해지는 거리 5 예외처리
+            if end - start == 5:
+                total += 1
+        
+        # [일반] 거리 절반 잘라 작동횟수 계산
+        else:
+            total = move(start, end)
+
+        # [출력]
+        # print(f'total: {total}')
+        # print('==================================\n')
+        print(total)
+
+
+if __name__ == '__main__':
+    main()
+
+# sum = 0
+# for i in range(10):
+#     sum += i
+#     print(f'sum: {sum}, i : {i}')
+
+# sum: 1 = 1
+# sum: 3 = 1 + 2
+# sum: 6 = 3 + 3
+# sum: 10 = 6 + 4
+# sum: 15 = 6 + 5
+# sum: 21 = 15 + 6
+# sum: 28 = 21 + 7
+# sum: 36 = 28 + 8
+# sum: 45 : 36 + 9
