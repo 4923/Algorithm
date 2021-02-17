@@ -29,15 +29,23 @@ if 1 in sieve:
 # 배수를 지울 때 곱하는 수와 곱해지는 수를 위한 for문을 따로 작성할 필요 없이 sieve의 원소에서 나누면 된다.
 # 참고한 질문: (https://www.acmicpc.net/board/view/54480)
 
-for isPrime in sieve:
+for index in range(len(sieve)):
+
+    # (변수/try 5) 인덱스로 접근하기 위해 변수 생성
+    isPrime = sieve[index]
+
+    # 앞에서 소거한 수인 경우 소수여부를 검사하지 않는다.
+    if isPrime == False:
+        print('[FALSE]')
+        continue
 
     # (변수) 최대 약수는 sqrt(num) 이하이므로 따로 편의를 위해 변수 생성
-    sqrt_num = int(round(isPrime ** (1/2)))
-    # print(f' isPrime: {isPrime}, sqrt_num: {sqrt_num}')
+    sqrt_num = int(isPrime ** (1/2))
+    print(f' isPrime: {isPrime}, sqrt_num: {sqrt_num}')
 
     # (범위) 2를 검사할 경우 범위가 2~2가 되므로 sqrt에 1이 아닌 2를 더한다.
     for num in range(2,  sqrt_num + 2):  
-        # print(f'\tnum : {num}')
+        print(f'\tnum : {num}')
 
         if isPrime != num and isPrime % num == 0:
             sieve[isPrime-start] = False
