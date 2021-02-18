@@ -21,27 +21,37 @@ import math  # sqrt
 # 소수 판별
 def isPrime(num):
     if num == 1:
-        return False
+        return 0
     for div in range(2, int(math.sqrt(num)) + 1):
         if num % div == 0:
-            return False
-    return True
+            return 0
+    return 1
+
 
 def main():
-
-    # 테스트케이스 입력
+    # [입력] 테스트케이스 입력
     num = int(sys.stdin.readline().strip())
     
+    # [for] 소수 모두 구하기, prime의 첫번째 값은 0이므로 False다. (try3)
+    prime = [0]
+    for check in range(1, 123456*2+1):  # 입력값의 최대가 123456이므로 검사해야하는 소수의 범위는 그 두배까지다
+        if isPrime(check):
+            prime.append(1)
+        else:
+            prime.append(0)
+
+    # 테스트케이스 별 베르트랑 공준 확인
     while num != 0:
+        # [출력] count 사용 (try 2)
+        print(sum(prime[num+1 : num*2+1]))
 
-        sieve = [isPrime(check) for check in range(num+1, 2*num+1)]
-
-        # 출력
-        # (try 2) count 사용
-        print(sieve.count(True))
-
-        # 다음 테스트케이스 입력
+        # [입력] 다음 테스트케이스 입력
         num = int(sys.stdin.readline().strip())
 
 if __name__ == '__main__':
     main()
+
+# ---------------------------------
+# try 3
+# 시간을 줄이려고 고민하던 중 다음 질문 (https://www.acmicpc.net/board/view/60204) 확인
+# 소수를 미리 구한 후에 count로 그 개수만 계산하는게 반복작업을 줄이므로 효율적이다.
