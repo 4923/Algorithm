@@ -33,15 +33,12 @@ def main():
     num = int(sys.stdin.readline().strip())
     
     while num != 0:
-        # cnt : 출력할 값, 소수의 개수
-        cnt = 0
-        for check in range(num+1, 2 * num + 1):
-            if isPrime(check):
-                cnt += 1
+
+        sieve = [isPrime(check) for check in range(num+1, 2*num+1)]
 
         # 출력
-        # print(f'{num} 보다 크고 {2*num}보다 작거나 같은 소수의 개수: {cnt}')
-        print(cnt)
+        # (try 2) count 사용
+        print(sieve.count(True))
 
         # 다음 테스트케이스 입력
         num = int(sys.stdin.readline().strip())
