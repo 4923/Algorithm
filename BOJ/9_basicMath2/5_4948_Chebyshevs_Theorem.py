@@ -16,6 +16,35 @@ https://www.acmicpc.net/problem/4948
 '''
 
 import sys
+import math  # sqrt
 
-while int(sys.stdin.readline().strip()) != 0:
-    print(1)
+# 소수 판별
+def isPrime(num):
+    if num == 1:
+        return False
+    for div in range(2, int(math.sqrt(num)) + 1):
+        if num % div == 0:
+            return False
+    return True
+
+def main():
+
+    # 테스트케이스 입력
+    num = int(sys.stdin.readline().strip())
+    
+    while num != 0:
+        # cnt : 출력할 값, 소수의 개수
+        cnt = 0
+        for check in range(num, 2 * num + 1):
+            if isPrime(check):
+                cnt += 1
+
+        # 출력
+        # print(f'{num} 보다 크고 {2*num}보다 작거나 같은 소수의 개수: {cnt}')
+        print(cnt)
+
+        # 다음 테스트케이스 입력
+        num = int(sys.stdin.readline().strip())
+
+if __name__ == '__main__':
+    main()
