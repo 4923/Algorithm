@@ -35,7 +35,7 @@ def main():
     while num != 0:
         # cnt : 출력할 값, 소수의 개수
         cnt = 0
-        for check in range(num, 2 * num + 1):
+        for check in range(num+1, 2 * num + 1):
             if isPrime(check):
                 cnt += 1
 
