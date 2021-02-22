@@ -35,15 +35,12 @@ def eratos(number):
 
 def goldbach(number, prime):
     min = number
-
     result1 = 0; result2 = 0
 
-    for gold in range(number//2, 2, -1):
-        print(f'gold: {gold} number-gold : {number-gold}, result1: {result1} result2: {result2} min: {min} max : {number//2 + 1}')
+    for gold in range(number//2, 1, -1):
 
         # 소수의 합일 때
         if prime[gold] and prime[number-gold]:
-            # result1 = gold; result2 = number-gold
             
             # 소수의 차가 가장 작은 골드바흐 파티션 찾기
 
@@ -53,7 +50,6 @@ def goldbach(number, prime):
             elif result2 - result1 <= min:
                 min = (number - gold) - gold
                 result1 = gold; result2 = number - gold
-                # print(f'\t\tgold: {gold} number-gold : {number-gold}, result1: {result1} result2: {result2} min: {min} max : {number//2 + 1}')
             
             else:
                 return print(result1, result2)
