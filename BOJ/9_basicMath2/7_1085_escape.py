@@ -10,3 +10,31 @@ https://www.acmicpc.net/problem/1085
 출력
 첫째 줄에 문제의 정답을 출력한다.
 '''
+
+import sys
+
+# 입력
+curr_x, curr_y, end_x, end_y = map(int, sys.stdin.readline().strip().split())
+
+# 가로
+if curr_x < end_x/2:
+    dis_x = curr_x
+else:
+    dis_x = end_x - curr_x
+
+# 세로
+if curr_y < end_y/2:
+    dis_y = curr_y
+else:
+    dis_y = end_y - curr_y
+
+# 총 거리
+if dis_x < dis_y:
+    distance = dis_x
+else:
+    distance = dis_y
+
+# 출력
+print(distance)
+
+
