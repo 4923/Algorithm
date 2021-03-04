@@ -22,17 +22,27 @@ digit_sum= int(input())
 # [재귀] 각 생성자에 따른 분해합 계산
 # 자기 자신 (sum 최초값) 에 생성자의 각 자릿수를 더한다.
 def find_digitSum(num, sum):
-    # print(f'\tnum : {num} sum : {sum}')
+    # print(f'\tnum : {num} sum : {sum} num%10 : {num%10}')
+    
     if num == 0:
         return sum
+    
     return find_digitSum(num//10, sum+num%10)
 
 def main():
+    result = 0
+    
     for generator_check in range(digit_sum+1):
         # print(generator_check, find_digitSum(generator_check, generator_check))
+        
         if find_digitSum(generator_check, generator_check) == digit_sum:
-            # 출력
-            return print(generator_check)
+            result = generator_check
+
+            # [출력] 가장 작은 생성자
+            return print(result)
+
+    # [출력] 생성자가 없을 경우
+    return print(result)
 
 if __name__ == '__main__':
     main()
