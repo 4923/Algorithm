@@ -29,3 +29,34 @@ E	(46, 155)	5
 출력
 여러분은 입력에 나열된 사람의 덩치 등수를 구해서 그 순서대로 첫 줄에 출력해야 한다. 단, 각 덩치 등수는 공백문자로 분리되어야 한다.
 '''
+
+import sys  # realine
+
+# 입력
+people = []  # [키, 몸무게] 리스트
+
+for _ in range( int(sys.stdin.readline().strip()) ):
+    people.append(list(map(int, sys.stdin.readline().strip().split())))
+
+# 비교 결과 목록
+results = []
+
+# 비교
+for person_ind in range(len(people)):
+
+    # 더 큰 덩치인 사람 수 초기화
+    cnt = 0
+
+    for compare_ind in range(len(people)):    
+        # 몸무게 비교
+        if people[person_ind][0] < people[compare_ind][0]:
+            # 키 비교
+            if people[person_ind][1] < people[compare_ind][1]:
+                # 더 큰 덩치인 사람 수
+                cnt += 1
+
+    # 더 큰 덩치인 사람 수를 비교 목록에 추가
+    results.append(cnt)
+
+# 출력
+[print(result+1, end = " ") for result in results]
