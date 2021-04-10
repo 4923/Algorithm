@@ -10,3 +10,24 @@ import sys
 
 N = int(sys.stdin.readline().strip())  # 만들어야 하는 그룹의 수
 numbers = list(map(int, sys.stdin.readline().strip().split()))  # 2*N의 숫자
+
+
+# 정렬
+numbers.sort()  # O(N)
+
+# 그룹 두개로 나누기 (작은 수, 큰 수)
+# 숫자의 개수가 2의 N배수이기 때문에 무조건 짝수임
+small = numbers[:len(numbers)//2]
+large = numbers[len(numbers)//2:]
+
+sums = []
+for index in range(len(numbers)//2):
+    small_number = small[-1-index]  # 작은 그룹에서 큰 순서대로 하나씩
+    large_number = large[index]  # 큰 그룹에서 작은 순서대로 하나씩
+    small_plus_large = small_number + large_number
+
+    # 합이 어떤 수들의 합인지는 중요하지 않다.
+    sums.append(small_plus_large)
+
+# 출력
+print(max(sums))
