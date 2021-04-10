@@ -13,7 +13,7 @@ numbers = list(map(int, sys.stdin.readline().strip().split()))  # 2*N의 숫자
 
 
 # 정렬
-numbers.sort()  # O(N)
+numbers.sort()  # O(nlogn)
 
 # 그룹 두개로 나누기 (작은 수, 큰 수)
 # 숫자의 개수가 2의 N배수이기 때문에 무조건 짝수임
