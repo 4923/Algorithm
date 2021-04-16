@@ -36,7 +36,7 @@ def isHappy_col():
     happy = 0
     for col in range(SIZE):
         continued = 0  # 열 탐색을 위해 초기화
-        temp = grid[col][0]  # 현재 연속하는 수를 확인하기 위한 변수 (초기값)
+        temp = grid[0][col]  # 현재 연속하는 수를 확인하기 위한 변수 (초기값)
         for row in range(SIZE):
             if grid[row][col] == temp: 
                 continued += 1
