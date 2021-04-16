@@ -3,28 +3,20 @@
 # 행복한 수열 : 연속하여 m개 이상의 동일한 수가 나오는 수열
 # 전체 수열이 n개인 이유 : 가로로 n개 + 세로로 n개 (정방행렬이므로)
 # 열탐색하면서 연속되는 수 일경우 cnt += 1씩 추가하는 방식, 열탐색이므로 O(n2)
+# => 모든 수에 대해 탐색하는게 아니라! 어떤 수라도 m개 이상 연속한다면 무조건 행복한 수열인것
+# 행복한 수열임을 확인했을 때 바로 반복에서 빠져나오게 해야 시간 낭비가 없다.
 
 import sys
 
 # 1. 입력
 SIZE, X = map(int, sys.stdin.readline().strip().split())  # n, m
-grid = [
+origin_grid = [
     list(map(int, sys.stdin.readline().strip().split()))
     for _ in range(SIZE)
 ]
 
-# 2. 격자 탐색
+# 2. 연속 확인
 
-# 격자 우측으로 90도 돌리기
-def rollGrid(grid):
-    grid2 = [ [] for _ in range(SIZE) ]
-    for row in range(SIZE):
-        for col in range(SIZE):
-            grid2[row].append(grid[col][row])
-    return grid2
-            
-# 인자 number의 연속을 확인하는 함수 isContinued
+# 3. 행복한 수열의 개수 확인 (최대 2n개)
 
-# 1~100까지 연속을 확인
-
-# 3. 행복한 수열의 수 출력
+# 4. 행복한 수열의 수 출력
