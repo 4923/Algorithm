@@ -49,3 +49,7 @@ def isHappy_col():
     
 # 4. 행복한 수열의 수 출력
 print(isHappy_col() + isHappy_row())
+
+
+# DEBUGING
+# 엄청 큰 격자에서 중복해서 답을 세는것 같은데 나머지 내일 풀어보기 (21-04-16)
