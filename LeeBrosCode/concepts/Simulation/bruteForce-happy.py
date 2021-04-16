@@ -20,25 +20,31 @@ grid = [
 def isHappy_row():
     happy = 0
     for row in range(SIZE):
-        continued = 0  # 열 탐색을 위해 초기화
-        for col in range(SIZE-1):
-            if grid[row][col] == grid[row][col+1]:  # 모든 수를 탐색하는것보다 내부에서 비교
+        continued = 0  # 행 탐색을 위해 초기화
+        temp = grid[row][0]  # 현재 연속하는 수를 확인하기 위한 변수 (초기값)
+        for col in range(SIZE):
+            if grid[row][col] == temp: 
                 continued += 1
                 if continued == X:  # 연속되는 수의 개수가 X개 이상이라면 행복한 수열이므로
                     happy += 1
-                    break  # 다음 열 탐색
+                    break  # 다음 행 탐색
+            else:
+                temp = grid[row][col]  # 연속 확인을 위해 값 변경
     return happy
     
 def isHappy_col():
     happy = 0
-    for col in range(SIZE-1):
+    for col in range(SIZE):
         continued = 0  # 열 탐색을 위해 초기화
+        temp = grid[col][0]  # 현재 연속하는 수를 확인하기 위한 변수 (초기값)
         for row in range(SIZE):
-            if grid[row][col] == grid[row][col+1]:  # 모든 수를 탐색하는것보다 내부에서 비교
+            if grid[row][col] == temp: 
                 continued += 1
                 if continued == X:  # 연속되는 수의 개수가 X개 이상이라면 행복한 수열이므로
                     happy += 1
                     break  # 다음 열 탐색
+            else:
+                temp = grid[row][col]  # 연속 확인을 위해 값 변경
     return happy
     
 # 4. 행복한 수열의 수 출력
