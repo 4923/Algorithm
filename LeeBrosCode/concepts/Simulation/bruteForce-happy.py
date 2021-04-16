@@ -10,13 +10,36 @@ import sys
 
 # 1. 입력
 SIZE, X = map(int, sys.stdin.readline().strip().split())  # n, m
-origin_grid = [
+grid = [
     list(map(int, sys.stdin.readline().strip().split()))
     for _ in range(SIZE)
 ]
 
 # 2. 연속 확인
-
 # 3. 행복한 수열의 개수 확인 (최대 2n개)
-
+def isHappy_row():
+    happy = 0
+    for row in range(SIZE):
+        continued = 0  # 열 탐색을 위해 초기화
+        for col in range(SIZE-1):
+            if grid[row][col] == grid[row][col+1]:  # 모든 수를 탐색하는것보다 내부에서 비교
+                continued += 1
+                if continued == X:  # 연속되는 수의 개수가 X개 이상이라면 행복한 수열이므로
+                    happy += 1
+                    break  # 다음 열 탐색
+    return happy
+    
+def isHappy_col():
+    happy = 0
+    for col in range(SIZE-1):
+        continued = 0  # 열 탐색을 위해 초기화
+        for row in range(SIZE):
+            if grid[row][col] == grid[row][col+1]:  # 모든 수를 탐색하는것보다 내부에서 비교
+                continued += 1
+                if continued == X:  # 연속되는 수의 개수가 X개 이상이라면 행복한 수열이므로
+                    happy += 1
+                    break  # 다음 열 탐색
+    return happy
+    
 # 4. 행복한 수열의 수 출력
+print(isHappy_col() + isHappy_row())
