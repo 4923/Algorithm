@@ -25,23 +25,46 @@ import sys
 # N번째 영화의 제목 : N번째로 작은 종말의 숫자 (666, 1666, 2666, 3666 ... ...)
 # 목표 : N번째 영화에 들어간 숫자 출력
 
-# N은 10,000 보다 작거나 같은 자연수
+# 입력 : N은 10,000 보다 작거나 같은 자연수
 seriesNum = int(sys.stdin.readline().strip())
 
-# 종말의 수 탐색
-temp = 0
-for cnt in range (1, 10000):
-    # 6이 포함된 수가 생길 때 마다, 그 6을 666의 마지막 자리로 생각
-    if '6' in list(str(cnt)):
-        temp += 1
-        # N번째 6이 들어간 수일 때
-        if temp == seriesNum:
-            endNum = list(str(cnt))
-            # 종말의 수로 변경 (6을 666으로)
-            for num in endNum:
-                if num == '6': print(num*3, end="")
-                else: print(num, end="")
-            break
+# 종말의 수 확인
+def isEndNum(number):  # input : list
+    cnt = 0
+    for digit in number:
+        if digit == '6': cnt += 1
+        if cnt == 3: return True
 
-        
-    
+
+# 종말의 수 탐색
+def endNum(seriesNum):
+    temp = 0
+    for cnt in range (1, 10000):
+        # 6이 포함된 수가 생길 때 마다, 그 6을 666의 첫 자리로 생각
+        if '6' in list(str(cnt)):
+            temp += 1
+            # N번째 6이 들어간 수일 때
+            if temp == seriesNum:
+                endNum = list(str(cnt))
+                # 종말의 수로 변경 (6을 666으로)
+                # for idx in range(len(endNum)):
+                    # if endNum[idx] == '6' and not isEndNum(endNum):
+                    #     endNum.insert(idx+1, '6')
+                    #     endNum.insert(idx+2, '6')
+                return ''.join(endNum)
+
+# 출력
+print(endNum(seriesNum))
+
+# test code
+# for i in range(1, 20):
+#     print(f'i : {i}\t, {endNum(i)}')
+
+
+# try 2
+# 13번째에서 6666이 아닌 666666 출력 -> isEndNum으로 첫 6만 666으로 만든다.
+
+# try 3
+# Runtime Error (Name Error) -> ?
+# 우선 입력값 3439일때부터 None 출력 -> 3439일 때 출력값 : 999666
+# cnt 범위가 10000이기 때문 ? 666으로 안늘리면 3439일 때 출력값 9996
