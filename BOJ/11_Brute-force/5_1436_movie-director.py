@@ -38,8 +38,9 @@ def isEndNum(number):  # input : list
 
 # 종말의 수 탐색
 def endNum(seriesNum):
-    temp = 0
-    for cnt in range (1, 10000):
+    temp, cnt  = 0, 0
+    while True:
+        cnt += 1
         # 6이 포함된 수가 생길 때 마다, 그 6을 666의 첫 자리로 생각
         if '6' in list(str(cnt)):
             temp += 1
@@ -47,10 +48,10 @@ def endNum(seriesNum):
             if temp == seriesNum:
                 endNum = list(str(cnt))
                 # 종말의 수로 변경 (6을 666으로)
-                # for idx in range(len(endNum)):
-                    # if endNum[idx] == '6' and not isEndNum(endNum):
-                    #     endNum.insert(idx+1, '6')
-                    #     endNum.insert(idx+2, '6')
+                for idx in range(len(endNum)):
+                    if endNum[idx] == '6' and not isEndNum(endNum):
+                        endNum.insert(idx+1, '6')
+                        endNum.insert(idx+2, '6')
                 return ''.join(endNum)
 
 # 출력
@@ -65,6 +66,9 @@ print(endNum(seriesNum))
 # 13번째에서 6666이 아닌 666666 출력 -> isEndNum으로 첫 6만 666으로 만든다.
 
 # try 3
-# Runtime Error (Name Error) -> ?
+# Runtime Error (Name Error) -> ? : import sys 안넣어서 발생
 # 우선 입력값 3439일때부터 None 출력 -> 3439일 때 출력값 : 999666
 # cnt 범위가 10000이기 때문 ? 666으로 안늘리면 3439일 때 출력값 9996
+
+# try 4
+# 오답인데 영문을 모르겠음
