@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/8958
 
 문제
@@ -13,7 +13,7 @@ OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작�
 
 출력
 각 테스트 케이스마다 점수를 출력한다.
-'''
+"""
 
 # # INPUT
 # n = int(input())  # testcase number
@@ -29,7 +29,7 @@ OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작�
 #             score += temp
 #         elif results[i][j] == 'X':
 #             temp = 0
-    
+
 #     print(score)  # OUTPUT
 
 #     score = 0  # reset
@@ -43,13 +43,13 @@ n = int(input())
 score = 0
 temp = 0
 
-for i in range(0,n):
+for i in range(0, n):
     result = list(input())  # INPUT
     for j in range(0, len(result)):
-        if result[j] == 'O':
+        if result[j] == "O":
             temp += 1
             score += temp
-        elif result[j] == 'X':
+        elif result[j] == "X":
             temp = 0
 
     # OUTPUT

@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2742
 
 문제
@@ -9,7 +9,7 @@ https://www.acmicpc.net/problem/2742
 
 출력
 첫째 줄부터 N번째 줄 까지 차례대로 출력한다.
-'''
+"""
 
 import sys
 
@@ -19,4 +19,4 @@ n = int(sys.stdin.readline().strip())
 # OUTPUT
 # 증가 폭을 음수로 지정
 for i in range(n, 0, -1):
-    sys.stdout.write(str(i)+'\n')
+    sys.stdout.write(str(i) + "\n")

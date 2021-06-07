@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10951
 
 문제
@@ -11,14 +11,14 @@ https://www.acmicpc.net/problem/10951
 
 출력
 각 테스트 케이스마다 A+B를 출력한다.
-'''
+"""
 
 # where is break point?
 # try-except
 
 while True:
     try:
-        a, b = map(int, input().split())    # INPUT
-        print(a+b)  # OUTPUT
+        a, b = map(int, input().split())  # INPUT
+        print(a + b)  # OUTPUT
     except:
         break

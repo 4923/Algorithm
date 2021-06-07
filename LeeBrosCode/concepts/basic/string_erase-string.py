@@ -1,4 +1,4 @@
-'''
+"""
 A = aabbaa
 B = ab
 
@@ -6,7 +6,7 @@ B = ab
 2. Erase 'ab' of A. abaa remained
 3. Erase 'ab' of remained A. aa remained
 4. Stop erasing
-'''
+"""
 
 import sys
 
@@ -17,7 +17,7 @@ B = sys.stdin.readline().strip()
 while True:
     ind = A.find(B)
     if ind != -1:
-        A = A[:ind] + A[ind+len(B):]
+        A = A[:ind] + A[ind + len(B) :]
     else:
         print(A)
         break

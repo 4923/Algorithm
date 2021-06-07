@@ -7,26 +7,29 @@ n = int(sys.stdin.readline().strip())
 def GCD(a, b):
     if a < b:
         a, b = b, a
-    
+
     if b == 0:
         return a
     else:
-        return GCD(a%b, b)
+        return GCD(a % b, b)
 
-def isPrime(n): 
+
+def isPrime(n):
     result = True
 
     # 최대공약수가 1이 아닌 수
-    for i in range(1, n): # 나뉘는 수
+    for i in range(1, n):  # 나뉘는 수
         if GCD(n, i) != 1:
             result = False
 
     return result
 
-def main():
-    for i in range(2, n+1):
-        if isPrime(i) == True:
-            print(i, end = " ")
 
-if __name__ == '__main__':
+def main():
+    for i in range(2, n + 1):
+        if isPrime(i) == True:
+            print(i, end=" ")
+
+
+if __name__ == "__main__":
     main()

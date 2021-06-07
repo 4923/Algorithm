@@ -11,12 +11,9 @@ n, m = map(int, sys.stdin.readline().strip().split())
 #     for _ in range(n)
 # ]  # grid: 2dim Array
 
-graph = [
-    [0 for _ in range(n+1)]
-    for _ in range(n+1)
-]
+graph = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
 
-visited = [False for _ in range(n+1)]
+visited = [False for _ in range(n + 1)]
 visited_cnt = 0
 
 # print(f'[Grid Check]\n\t{grid}')
@@ -25,17 +22,20 @@ visited_cnt = 0
 # x == row (down) / y == col (right)
 q = deque()
 # visited랑 answer 무식하게 이중루프 안돌아도 되잖아 미친건가
-visited = [[-1]*m for _ in range(n)]
-answer = [[-1]*m for _ in range(n)]
+visited = [[-1] * m for _ in range(n)]
+answer = [[-1] * m for _ in range(n)]
 
 order = 1
 
-print(f'[Variable Check]\n\tq: {q}\n\tvisited: {visited}\n\tanswer: {answer}\n\torder: {order}')
+print(
+    f"[Variable Check]\n\tq: {q}\n\tvisited: {visited}\n\tanswer: {answer}\n\torder: {order}"
+)
 
 # bool InRange
 # grid 안의 점인가
 def IsRange(x, y):
     return 0 <= x <= n and 0 <= y <= m
+
 
 # bool CanGo
 # 인접한 위치로 갈 수 있는가
@@ -45,7 +45,7 @@ def CanGo(new_x, new_y):
     if visited[new_x][new_y] or grid[new_x][new_y] == 0:  # 이미 방문했거나 뱀이 있는경우(0)
         return False
     return True  # 앞의 두 조건이 아니라면 이동 가능하다.
-    
+
 
 # BFS
 # 현재 방문한 위치 가져오기 q가 비어있지 않은게 while의 조건이므로 q의 맨 앞을 가져 올 것.
@@ -58,17 +58,17 @@ def BFS():
     dy = [0, 1]  # 아래
 
     # 반복문으로 탐색
-    while q: # deque이 비지 않았을 때
+    while q:  # deque이 비지 않았을 때
         return
-        
-
 
     return
+
 
 # main()
 def main():
     # 탈출 가능하면 True 출력
     return
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

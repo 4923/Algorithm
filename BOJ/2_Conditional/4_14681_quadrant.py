@@ -1,4 +1,4 @@
-'''
+"""
 
 https://www.acmicpc.net/problem/14681
 
@@ -16,7 +16,7 @@ https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/14681/1.png
 
 출력
 점 (x, y)의 사분면 번호(1, 2, 3, 4 중 하나)를 출력한다.
-'''
+"""
 
 # 입력
 x = int(input())

@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10818
 
 문제
@@ -9,7 +9,7 @@ N개의 정수가 주어진다. 이때, 최솟값과 최댓값을 구하는 프�
 
 출력
 첫째 줄에 주어진 정수 N개의 최솟값과 최댓값을 공백으로 구분해 출력한다.
-'''
+"""
 
 # INPUT
 n = int(input())
@@ -27,11 +27,11 @@ for i in range(len(numbers)):
     if numbers[i] > max_:
         max_ = numbers[i]
 
-print(f'{min_} {max_}')
+print(f"{min_} {max_}")
 
 # Solve: 2 (147100KB	432ms)
 # Use list function `min()` `max()`
-print(f'{min(numbers)} {max(numbers)}')
+print(f"{min(numbers)} {max(numbers)}")
 
 # Question:
 # Why should the program reads variable `n` if it reads integer numbers at one line?

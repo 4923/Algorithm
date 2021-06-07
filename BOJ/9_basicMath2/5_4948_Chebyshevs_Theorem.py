@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/4948
 
 문제
@@ -13,7 +13,7 @@ https://www.acmicpc.net/problem/4948
 
 출력
 각 테스트 케이스에 대해서, n보다 크고, 2n보다 작거나 같은 소수의 개수를 출력한다.
-'''
+"""
 
 import sys
 import math  # sqrt
@@ -31,10 +31,10 @@ def isPrime(num):
 def main():
     # [입력] 테스트케이스 입력
     num = int(sys.stdin.readline().strip())
-    
+
     # [for] 소수 모두 구하기, prime의 첫번째 값은 0이므로 False다. (try3)
     prime = [0]
-    for check in range(1, 123456*2+1):  # 입력값의 최대가 123456이므로 검사해야하는 소수의 범위는 그 두배까지다
+    for check in range(1, 123456 * 2 + 1):  # 입력값의 최대가 123456이므로 검사해야하는 소수의 범위는 그 두배까지다
         if isPrime(check):
             prime.append(1)
         else:
@@ -43,12 +43,13 @@ def main():
     # 테스트케이스 별 베르트랑 공준 확인
     while num != 0:
         # [출력] count 사용 (try 2)
-        print(sum(prime[num+1 : num*2+1]))
+        print(sum(prime[num + 1 : num * 2 + 1]))
 
         # [입력] 다음 테스트케이스 입력
         num = int(sys.stdin.readline().strip())
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
 
 # ---------------------------------

@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2292
 
 문제
@@ -15,7 +15,7 @@ https://www.acmicpc.net/JudgeOnline/upload/201009/3(2).png
 
 출력
 입력으로 주어진 방까지 최소 개수의 방을 지나서 갈 때 몇 개의 방을 지나는지 출력한다.
-'''
+"""
 
 # 각 방의 범위
 # [1] 1
@@ -29,6 +29,7 @@ https://www.acmicpc.net/JudgeOnline/upload/201009/3(2).png
 
 # input
 import sys
+
 n = int(sys.stdin.readline().strip())
 
 # variable
@@ -49,9 +50,8 @@ while True:
         curr += max_num
         cnt += 1
         continue
-    
+
     else:
         # print('else')
         print(cnt)
         break
-

@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2908
 
 문제
@@ -20,7 +20,7 @@ https://www.acmicpc.net/problem/2908
 
 출력
 첫째 줄에 상수의 대답을 출력한다.
-'''
+"""
 
 import sys
 

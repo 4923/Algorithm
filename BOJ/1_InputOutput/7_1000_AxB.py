@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10998
 
 문제
@@ -9,7 +9,7 @@ https://www.acmicpc.net/problem/10998
 
 출력
 첫째 줄에 A×B를 출력한다.
-'''
+"""
 
 a, b = map(int, input().split())
-print(a*b)
+print(a * b)

@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1316
 
 문제
@@ -17,7 +17,7 @@ aabbbccb는 b가 떨어져서 나타나기 때문에 그룹 단어가 아니다.
 
 출력
 첫째 줄에 그룹 단어의 개수를 출력한다.
-'''
+"""
 
 import sys
 
@@ -32,8 +32,7 @@ cnt = N
 
 # [loop] 각 줄의 str에 접근
 for string in strings:
-    
-    
+
     # checker : 연속되는 상태일 때 1로 변함
     checker = 1
 
@@ -56,7 +55,7 @@ for string in strings:
         # print('----------------------------------------------------------------------------------------------------')
         # print(f'check: {check}\tindex: {string.find(check)}\t checker status: {checker}')
         # print('----------------------------------------------------------------------------------------------------')
-        
+
         # [condition 1] 연속하지 않고 다른 위치에 같은 알파벳이 있다면 총 개수 cnt에 포함시키지 않음
         if string.find(check) > 0:
             checker = 0
@@ -64,12 +63,12 @@ for string in strings:
             break
         else:
             checker = 1
-    
+
     # print(f'\n************************************ [End loop] ************************************\n')
-        
+
     # 연속이 종료되면 총 개수 cnt에 1을 더함
     if checker == 0:
-        cnt -= 1        
+        cnt -= 1
         # print('\t\n[IS NOT Group Word] ', cnt, '\n')
 
 

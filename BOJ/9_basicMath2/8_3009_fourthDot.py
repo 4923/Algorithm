@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/3009
 
 문제
@@ -9,14 +9,11 @@ https://www.acmicpc.net/problem/3009
 
 출력
 직사각형의 네 번째 점의 좌표를 출력한다.
-'''
+"""
 
 import sys
 
-coordinates = [
-    list(map(int, sys.stdin.readline().strip().split()))
-    for _ in range(3)
-]
+coordinates = [list(map(int, sys.stdin.readline().strip().split())) for _ in range(3)]
 
 results = []
 
@@ -28,4 +25,4 @@ for c in range(2):
     else:  # O X O
         results.append(coordinates[1][c])  # X
 
-[print(result, end = " ") for result in results]
+[print(result, end=" ") for result in results]

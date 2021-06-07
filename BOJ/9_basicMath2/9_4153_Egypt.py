@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/4153
 
 문제
@@ -9,7 +9,7 @@ https://www.acmicpc.net/problem/4153
 
 출력
 각 입력에 대해 직각 삼각형이 맞다면 "right", 아니라면 "wrong"을 출력한다.
-'''
+"""
 
 import sys
 
@@ -18,7 +18,8 @@ while True:
     sides = list(map(int, sys.stdin.readline().strip().split()))
 
     # 종료
-    if sides == [0, 0, 0] : break
+    if sides == [0, 0, 0]:
+        break
 
     longest = max(sides)
     sides.remove(longest)

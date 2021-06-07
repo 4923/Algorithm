@@ -5,22 +5,19 @@
 import sys
 
 # input
-string, count =sys.stdin.readline().strip().split()
+string, count = sys.stdin.readline().strip().split()
 count = int(count)
-question = [
-    sys.stdin.readline().strip().split()
-    for _ in range(count)
-]
+question = [sys.stdin.readline().strip().split() for _ in range(count)]
 
 # solve
 
 for q in question:
-    
+
     order = q[0]
-    
-    if order == '1':
-        index1 = int(q[1])-1
-        index2 = int(q[2])-1
+
+    if order == "1":
+        index1 = int(q[1]) - 1
+        index2 = int(q[2]) - 1
 
         # 특정 문자만 교환해야하므로 index로 접근
         string = list(string)
@@ -29,7 +26,7 @@ for q in question:
         string[index1] = string[index2]
         string[index2] = temp
 
-        string = ''.join(string)
+        string = "".join(string)
 
         # output
         print(string)

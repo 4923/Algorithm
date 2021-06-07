@@ -1,4 +1,4 @@
-'''
+"""
 a/b 출력
 두 자연수 a, b를 입력받아 a / b 결과를 소수점 20째자리까지 출력하는 프로그램을 작성해보세요.
 
@@ -8,21 +8,21 @@ a/b 출력
 1 ≤ a, b ≤ 100
 출력 형식
 a / b 결과를 소수점 20째자리까지 출력합니다.
-'''
+"""
 
 import sys
 
 # input
-a, b =map(float, sys.stdin.readline().strip().split())
+a, b = map(float, sys.stdin.readline().strip().split())
 
-result = round(a/b, 20)
+result = round(a / b, 20)
 # output
-print(f'{result:.19f}')
+print(f"{result:.19f}")
 
-'''
+"""
 0.60000000000000000000
 0.5999999999999999778
 
 0.42857142857142857142
 0.4285714285714285476
-'''
+"""

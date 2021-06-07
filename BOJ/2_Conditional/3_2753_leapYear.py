@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2753
 
 문제
@@ -13,17 +13,17 @@ https://www.acmicpc.net/problem/2753
 
 출력
 첫째 줄에 윤년이면 1, 아니면 0을 출력한다.
-'''
+"""
 
 # 입력
 year = int(input())
 
 # 출력
-if (year % 4 == 0):
-    if (year % 100 != 0):
-        print ("1")
-    elif (year % 400 == 0):
-        print ("1")
+if year % 4 == 0:
+    if year % 100 != 0:
+        print("1")
+    elif year % 400 == 0:
+        print("1")
     else:
         print("0")
 else:

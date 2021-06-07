@@ -1,4 +1,4 @@
-'''
+"""
 
 https://www.acmicpc.net/problem/10172
 
@@ -10,10 +10,10 @@ https://www.acmicpc.net/problem/10172
 
 출력
 개를 출력한다.
-'''
+"""
 
 print("|\_/|")
 print("|q p|   /}")
-print("( 0 )\"\"\"\\")
-print("|\"^\"`    |")
+print('( 0 )"""\\')
+print('|"^"`    |')
 print("||_/=\\\\__|")

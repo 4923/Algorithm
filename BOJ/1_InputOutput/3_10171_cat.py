@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10171
 
 문제
@@ -9,10 +9,10 @@ https://www.acmicpc.net/problem/10171
 
 출력
 고양이를 출력한다.
-'''
+"""
 
 
 print("\    /\\")
-print(" )  ( \')")
+print(" )  ( ')")
 print("(  /  )")
 print(" \(__)|")

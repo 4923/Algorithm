@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1436
 
 문제
@@ -17,9 +17,9 @@ https://www.acmicpc.net/problem/1436
 
 출력
 첫째 줄에 N번째 영화의 제목에 들어간 수를 출력한다.
-'''
+"""
 
-import sys 
+import sys
 
 # 종말의 숫자 : 어떤 수에 적어도 6이 세개 이상, 연속으로 들어가는 수
 # N번째 영화의 제목 : N번째로 작은 종말의 숫자 (666, 1666, 2666, 3666 ... ...)
@@ -32,27 +32,30 @@ seriesNum = int(sys.stdin.readline().strip())
 def isEndNum(number):  # input : list
     cnt = 0
     for digit in number:
-        if digit == '6': cnt += 1
-        if cnt == 3: return True
+        if digit == "6":
+            cnt += 1
+        if cnt == 3:
+            return True
 
 
 # 종말의 수 탐색
 def endNum(seriesNum):
-    temp, cnt  = 0, 0
+    temp, cnt = 0, 0
     while True:
         cnt += 1
         # 6이 포함된 수가 생길 때 마다, 그 6을 666의 첫 자리로 생각
-        if '6' in list(str(cnt)):
+        if "6" in list(str(cnt)):
             temp += 1
             # N번째 6이 들어간 수일 때
             if temp == seriesNum:
                 endNum = list(str(cnt))
                 # 종말의 수로 변경 (6을 666으로)
                 for idx in range(len(endNum)):
-                    if endNum[idx] == '6' and not isEndNum(endNum):
-                        endNum.insert(idx+1, '6')
-                        endNum.insert(idx+2, '6')
-                return ''.join(endNum)
+                    if endNum[idx] == "6" and not isEndNum(endNum):
+                        endNum.insert(idx + 1, "6")
+                        endNum.insert(idx + 2, "6")
+                return "".join(endNum)
+
 
 # 출력
 print(endNum(seriesNum))

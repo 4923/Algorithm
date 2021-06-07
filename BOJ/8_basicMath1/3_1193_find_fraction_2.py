@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1193
 
 문제
@@ -21,10 +21,11 @@ X가 주어졌을 때, X번째 분수를 구하는 프로그램을 작성하시�
 첫째 줄에 분수를 출력한다.
 
 # 지그재그라는게 이해가 안가서 검색함 : https://nhs0912.tistory.com/56, https://jaimemin.tistory.com/1037
-'''
+"""
 
 
 import sys
+
 
 def main():
     # [입력] request 번째 분수를 구하시오
@@ -38,7 +39,7 @@ def main():
     # [1] cycle이 홀수면 분모가 오름차순 정렬, 짝수면 분모가 오름차순 정렬
     # cycle: 실질적으로 생각하면 되는 cycle (1/6 2/5 3/4 ... ... 6/1)
 
-    for cycle in range(1, request+1):
+    for cycle in range(1, request + 1):
         if request <= cycle:
             break
 
@@ -48,25 +49,27 @@ def main():
     # [2] 한 cycle 안에서 몇 번째 분수인가
     # cycle_sum: 직전 cycle까지의 분모/분자 최대값의 합
     cycle_sum = 0
-    for cycle_num in range(1, cycle-1):
+    for cycle_num in range(1, cycle - 1):
         cycle_sum += cycle_num
-    
+
     # new_fraction_num: 실질적으로 생각하면 되는 분수의 차례
     new_fraction_num = request
 
     # print(f'cycle: {cycle} new_fraction_num: {new_fraction_num} cycle_sum: {cycle_sum}')
-    
-    # [3] 분수 생성
-    if cycle % 2 == 0 :  # cycle이 짝수: 분모 오름차순 정렬
-        denominator = new_fraction_num; numerator = cycle - new_fraction_num + 1
-    
-    else:
-        numerator = new_fraction_num; denominator = cycle - new_fraction_num + 1
 
+    # [3] 분수 생성
+    if cycle % 2 == 0:  # cycle이 짝수: 분모 오름차순 정렬
+        denominator = new_fraction_num
+        numerator = cycle - new_fraction_num + 1
+
+    else:
+        numerator = new_fraction_num
+        denominator = cycle - new_fraction_num + 1
 
     # [출력]
-    result = f'{denominator}/{numerator}'
+    result = f"{denominator}/{numerator}"
     print(result)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

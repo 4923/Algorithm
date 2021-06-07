@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2562
 
 문제
@@ -12,11 +12,11 @@ https://www.acmicpc.net/problem/2562
 
 출력
 첫째 줄에 최댓값을 출력하고, 둘째 줄에 최댓값이 몇 번째 수인지를 출력한다.
-'''
+"""
 
 # INPUT
-n = [int(input()) for i in range(0,9)]
+n = [int(input()) for i in range(0, 9)]
 
 # OUTPUT
 print(max(n))  # Max value
-print(n.index(max(n))+1)    # index of Max value
+print(n.index(max(n)) + 1)  # index of Max value

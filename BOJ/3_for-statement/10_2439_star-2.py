@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2439
 
 문제
@@ -11,7 +11,7 @@ https://www.acmicpc.net/problem/2439
 
 출력
 첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
-'''
+"""
 
 import sys
 
@@ -19,5 +19,5 @@ import sys
 n = int(sys.stdin.readline())
 
 # OUTPUT
-for i in range(1, n+1):
-    print(" " * (n-i) + "*" * i)
+for i in range(1, n + 1):
+    print(" " * (n - i) + "*" * i)

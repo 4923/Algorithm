@@ -21,6 +21,7 @@ def Count_Gold(start_row, start_col, end_row, end_col):
                 # print(f'\t[Variable] cnt == [{cnt}] NOW')
     return cnt
 
+
 # print(grid, Count_Gold(0,0,N,N))  # 3 == N, end_row & end_col == N
 
 # Main
@@ -33,11 +34,11 @@ def main():
         for t in range(N):
             start_row = k
             start_col = t
-            end_row = k+3
-            end_col = t+3
+            end_row = k + 3
+            end_col = t + 3
             if end_row > N or end_col > N:
                 # print(f'[!!ANSWER!!] {MAX}')
-                break # break 걸고 => for문 다 빠져나간 후 MAX 한번만 출력
+                break  # break 걸고 => for문 다 빠져나간 후 MAX 한번만 출력
             elif MAX < Count_Gold(start_row, start_col, end_row, end_col):
                 # print("-------------------------------")
                 # print(f'[Gold Check] Max gold is {MAX} and init gold is {Count_Gold(start_row, start_col, end_row, end_col)}')
@@ -46,5 +47,7 @@ def main():
                 MAX = Count_Gold(start_row, start_col, end_row, end_col)
 
     print(MAX)  # OUTPUT
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     main()

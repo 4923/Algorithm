@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/4344
 
 문제
@@ -11,33 +11,33 @@ https://www.acmicpc.net/problem/4344
 
 출력
 각 케이스마다 한 줄씩 평균을 넘는 학생들의 비율을 반올림하여 소수점 셋째 자리까지 출력한다.
-'''
+"""
 
 # INPUT
 c = int(input())  # testcases number
 
-# SOLVE 
+# SOLVE
 sum = 0
 average = 0
 aboveA = 0
 
 # loop i : INPUT
-for i in range(0,c):
+for i in range(0, c):
     testcase = list(map(int, input().split()))
-    
+
     # loop j : calculate average
-    for j in range(1, testcase[0]+1):
+    for j in range(1, testcase[0] + 1):
         sum += testcase[j]
-    average = sum/testcase[0]
+    average = sum / testcase[0]
 
     # loop l : calculate ratio of students got above average score
-    for l in range(1, testcase[0]+1):
+    for l in range(1, testcase[0] + 1):
         if testcase[l] > average:
             aboveA += 1
-    
+
     # OUTPUT
     # print(f'sum: {sum}\t average: {average}\t above average: {aboveA}\t students: {testcase[0]}')
-    print(f'{round(aboveA/testcase[0]*100, 3):.3f}%')
+    print(f"{round(aboveA/testcase[0]*100, 3):.3f}%")
 
     # reset variables
     sum = 0

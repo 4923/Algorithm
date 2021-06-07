@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
 
     # [입력] 원소의 수
@@ -16,11 +17,11 @@ def main():
     # # [출력] 최대
     if len(unique) != 0:
         print(max(unique))
-    
+
     # [출력] 최대값이 없을 때 (모두 중복)
     else:
         print(-1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

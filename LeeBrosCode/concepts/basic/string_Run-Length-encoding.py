@@ -6,10 +6,10 @@
 
 import sys
 
-string = sys.stdin.readline().strip() + '_'
+string = sys.stdin.readline().strip() + "_"
 # 마지막까지 연속되는 값을 확인하기 위해 임의로 길이를 1 늘렸다.
 
-new_string = ''
+new_string = ""
 temp = string[0]
 cnt = 0
 

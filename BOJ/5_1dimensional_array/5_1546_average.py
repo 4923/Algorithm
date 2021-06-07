@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1546
 
 문제
@@ -13,7 +13,7 @@ https://www.acmicpc.net/problem/1546
 
 출력
 첫째 줄에 새로운 평균을 출력한다. 실제 정답과 출력값의 절대오차 또는 상대오차가 10^-2 이하이면 정답이다.
-'''
+"""
 
 # INPUT
 n = int(input())
@@ -25,12 +25,12 @@ scoreMax = max(score)
 newSum = 0
 
 # change scores
-for i in range(0,n):
-    score[i] = score[i]/scoreMax*100
+for i in range(0, n):
+    score[i] = score[i] / scoreMax * 100
     newSum += score[i]
 
 # find new average
-newAverage = newSum/n
+newAverage = newSum / n
 
 # OUTPUT
 print(newAverage)

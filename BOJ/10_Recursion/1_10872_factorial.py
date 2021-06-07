@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10872
 
 문제
@@ -9,14 +9,15 @@ https://www.acmicpc.net/problem/10872
 
 출력
 첫째 줄에 N!을 출력한다.
-'''
+"""
+
 
 def factorial(N):
     # 탈출 조건
     if N == 0:
         return 1
 
-    return N * factorial(N-1)
+    return N * factorial(N - 1)
 
 
 def main():
@@ -27,5 +28,5 @@ def main():
     print(factorial(N))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

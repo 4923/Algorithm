@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2675
 
 문제
@@ -14,31 +14,31 @@ QR Code "alphanumeric" 문자는 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\$%*+-./: �
 
 출력
 각 테스트 케이스에 대해 P를 출력한다.
-'''
+"""
 
 # INPUT
 n = int(input())  # n: test case number,
-tc = [list(input()) for _ in range(0,n)]  # tc[_][0]: repeat times, tc[_][1:]: char
+tc = [list(input()) for _ in range(0, n)]  # tc[_][0]: repeat times, tc[_][1:]: char
 
 # SOLVE
-for i in range(0,n):  # testcase
+for i in range(0, n):  # testcase
     rep = int(tc[i][0])
     del tc[i][0:2]
     for j in range(0, len(tc[i])):  # string
         # OUTPUT
-        print(tc[i][j]*rep, end="")
+        print(tc[i][j] * rep, end="")
     print("")  # line break
 
 
 # TESTCASE
 # INPUT:
-'''
+"""
 2
 3 ABC
 5 /HTP
-'''
+"""
 # OUTPUT:
-'''
+"""
 AAABBBCCC
 /////HHHHHTTTTTPPPPP
-'''
+"""

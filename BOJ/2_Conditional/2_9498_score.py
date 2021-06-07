@@ -1,4 +1,4 @@
-'''
+"""
 
 https://www.acmicpc.net/problem/9498
 
@@ -10,21 +10,21 @@ https://www.acmicpc.net/problem/9498
 
 출력
 시험 성적을 출력한다.
-'''
+"""
 
 # 입력
 score = int(input())
 
 # 출력
-if (90 <= score <= 100):
+if 90 <= score <= 100:
     print("A")
-elif (80 <= score < 90):
+elif 80 <= score < 90:
     print("B")
-elif (70 <= score < 80):
+elif 70 <= score < 80:
     print("C")
-elif (60 <= score < 70):
+elif 60 <= score < 70:
     print("D")
-elif (0 <= score < 60):
+elif 0 <= score < 60:
     print("F")
 else:
     print("Wrong input")

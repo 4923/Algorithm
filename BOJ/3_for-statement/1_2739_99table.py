@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2739
 
 문제
@@ -9,11 +9,11 @@ N을 입력받은 뒤, 구구단 N단을 출력하는 프로그램을 작성하�
 
 출력
 출력형식과 같게 N*1부터 N*9까지 출력한다.
-'''
+"""
 
 # input (1<= n <=9)
 n = int(input())
 
 # output
-for i in range (0,9):
-    print(f'{n} * {i+1} = {n * (i+1)}')
+for i in range(0, 9):
+    print(f"{n} * {i+1} = {n * (i+1)}")

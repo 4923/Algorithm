@@ -9,9 +9,9 @@ for num in nums:
         if num == 1:
             print(cnt)
             break
-        
+
         cnt += 1
-        
+
         if num % 2 == 0:  # 짝수
             num /= 2
         else:  # 홀수

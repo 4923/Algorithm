@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10952
 
 문제
@@ -13,15 +13,15 @@ https://www.acmicpc.net/problem/10952
 
 출력
 각 테스트 케이스마다 A+B를 출력한다.
-'''
+"""
 
 # import module
 import sys
 
 while True:
-    a, b = map(int, sys.stdin.readline().split())   # INPUT
+    a, b = map(int, sys.stdin.readline().split())  # INPUT
 
     if a == 0 and b == 0:
         break
 
-    sys.stdout.write(str(a+b)+'\n')  # OUTPUT
+    sys.stdout.write(str(a + b) + "\n")  # OUTPUT

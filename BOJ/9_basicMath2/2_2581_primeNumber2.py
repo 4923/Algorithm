@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2581
 
 문제
@@ -12,7 +12,7 @@ M과 N은 10,000이하의 자연수이며, M은 N보다 작거나 같다.
 출력
 M이상 N이하의 자연수 중 소수인 것을 모두 찾아 첫째 줄에 그 합을, 둘째 줄에 그 중 최솟값을 출력한다. 
 단, M이상 N이하의 자연수 중 소수가 없을 경우는 첫째 줄에 -1을 출력한다.
-'''
+"""
 
 import sys
 
@@ -28,15 +28,16 @@ def isPrime(num):
     for i in range(2, num):
         if num % i == 0:
             return False
-            
+
     return True
+
 
 def main():
     result = []
-    for num in range(start, end+1):
+    for num in range(start, end + 1):
         if isPrime(num) == True:
             result.append(num)
-    
+
     # [출력]
     if len(result) > 0:
         print(sum(result))
@@ -44,5 +45,6 @@ def main():
     else:
         print(-1)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

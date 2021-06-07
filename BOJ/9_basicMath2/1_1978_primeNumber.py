@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1978
 
 문제
@@ -9,7 +9,7 @@ https://www.acmicpc.net/problem/1978
 
 출력
 주어진 수들 중 소수의 개수를 출력한다.
-'''
+"""
 
 import sys
 
@@ -19,7 +19,7 @@ numbers = list(map(int, sys.stdin.readline().strip().split()))
 
 prime_cnt = 0
 for number in numbers:
-    for num in range(2, number+1):  # 1과 자기 자신으로만 나누어 지는 수
+    for num in range(2, number + 1):  # 1과 자기 자신으로만 나누어 지는 수
         if num == number:
             prime_cnt += 1
         elif num != 1 and number % num == 0:

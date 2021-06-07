@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/3052
 
 문제
@@ -12,15 +12,15 @@ https://www.acmicpc.net/problem/3052
 
 출력
 첫째 줄에, 42로 나누었을 때, 서로 다른 나머지가 몇 개 있는지 출력한다.
-'''
+"""
 # INPUT
 n = 10
 numbers = []
-for i in range(0,n):
+for i in range(0, n):
     numbers.append(int(input()))
 
 # SOLVE
-for i in range(0,n):
+for i in range(0, n):
     numbers[i] %= 42
 
 # OUTPUT

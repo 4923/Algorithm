@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1712
 
 문제
@@ -19,7 +19,7 @@ A, B, C가 주어졌을 때, 손익분기점을 구하는 프로그램을 작성
 
 출력
 첫 번째 줄에 손익분기점 즉 최초로 이익이 발생하는 판매량을 출력한다. 손익분기점이 존재하지 않으면 -1을 출력한다.
-'''
+"""
 
 
 import sys
@@ -38,14 +38,14 @@ if netprofit <= 0:
 else:
     # 고정비용/순이익 + 1 = 손익분기점
     breakEvenPoint = fixed_cost // netprofit + 1
-    
+
 print(breakEvenPoint)
 
 # [반복문을 활용한 풀이 : 시간초과]
-# 
+#
 # total = 1
 # netprofit = - fixed_cost
-# 
+#
 # while True:
 #     # print(f'[VARIABLE CHECK]\n\tfixed_cost : {fixed_cost}, variable_cost : {variable_cost}, price: {price}\n\ttotal : {total}')
 #     if price <= variable_cost:  # 1 / (price - variable_cost) < x
@@ -54,11 +54,10 @@ print(breakEvenPoint)
 
 #     netprofit += (price - variable_cost)  # 순이익 더함
 #     # print(f'[ANSWER]\n\ttotal: {total}\n\tnetprofit: {netprofit}')
-    
+
 #     # output
 #     if netprofit > 0:
 #         print(total)
 #         break
 
 #     total += 1
-

@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2741
 
 문제
@@ -9,12 +9,12 @@ https://www.acmicpc.net/problem/2741
 
 출력
 첫째 줄부터 N번째 줄 까지 차례대로 출력한다.
-'''
+"""
 import sys
 
 # INPUT
 n = int(sys.stdin.readline().strip())
 
 # OUTPUT
-for i in range(1,n+1):
-    sys.stdout.write(str(i)+'\n')
+for i in range(1, n + 1):
+    sys.stdout.write(str(i) + "\n")

@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1157
 
 문제
@@ -12,14 +12,16 @@ https://www.acmicpc.net/problem/1157
 출력
 첫째 줄에 이 단어에서 가장 많이 사용된 알파벳을 대문자로 출력한다. 
 단, 가장 많이 사용된 알파벳이 여러 개 존재하는 경우에는 ?를 출력한다.
-'''
+"""
 
 # INPUT
 word = input().upper()  # len(word) < 1000000 / UPPER ALPHABETS
 
 # SOLVE
 word = list(word)  # To use list function: .count(x)
-setWord = list(set(word))  # To remove duplicated alphabets: (program doesn't focused on index)
+setWord = list(
+    set(word)
+)  # To remove duplicated alphabets: (program doesn't focused on index)
 
 max = 0
 freqA = []
@@ -29,7 +31,9 @@ for i in range(0, len(setWord)):
         freqA = [setWord[i]]  # exchange most frequent alphabet list (len should be 1)
     elif max == word.count(setWord[i]):
         max = word.count(setWord[i])  # exchange max count
-        freqA.append(setWord[i])  # append most frequent alphabet list (goes to print("?"))
+        freqA.append(
+            setWord[i]
+        )  # append most frequent alphabet list (goes to print("?"))
     else:
         continue
 

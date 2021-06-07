@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10430
 
 문제
@@ -13,13 +13,13 @@ https://www.acmicpc.net/problem/10430
 
 출력
 첫째 줄에 (A+B)%C, 둘째 줄에 ((A%C) + (B%C))%C, 셋째 줄에 (A×B)%C, 넷째 줄에 ((A%C) × (B%C))%C를 출력한다.
-'''
+"""
 
 # 입력
 a, b, c = map(int, input().split())
 
 # 출력
-print((a+b)%c)
-print(((a%c) + (b%c))%c)
-print((a*b)%c)
-print(((a%c) * (b%c))%c)
+print((a + b) % c)
+print(((a % c) + (b % c)) % c)
+print((a * b) % c)
+print(((a % c) * (b % c)) % c)

@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/4673
 
 문제
@@ -29,7 +29,7 @@ n을 d(n)의 생성자라고 한다. 위의 수열에서 33은 39의 생성자�
 
 출력
 10,000보다 작거나 같은 셀프 넘버를 한 줄에 하나씩 증가하는 순서로 출력한다.
-'''
+"""
 
 # [try 1: while]
 # 10000개의 수에서 생성자가 존재하는 수를 지워갈 수도 있을 것 -> 너무 비효율적?
@@ -41,10 +41,11 @@ def d(number):
         number = number // 10
     return new
 
+
 def main():
     # 1 ~ maxNum 까지의 list
     maxNum = 10000
-    numbers = [int(number) for number in range(1,maxNum+1)]
+    numbers = [int(number) for number in range(1, maxNum + 1)]
 
     # loop :
     i = 0
@@ -52,12 +53,11 @@ def main():
         i += 1
         if d(i) <= maxNum and d(i) in numbers:
             numbers.remove(d(i))
-    
+
     # OUTPUT
     for number in numbers:
         print(number)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

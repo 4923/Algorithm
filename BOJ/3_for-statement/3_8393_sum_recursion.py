@@ -1,4 +1,4 @@
-'''
+"""
 문제
 John got a bad mark in math. The teacher gave him another task.
 John is to write a program which computes the sum of integers from 1 to n.
@@ -15,15 +15,17 @@ The first and only line of the standard input contains one integer n (1 ≤ n �
 출력
 One integer is to be written to the standard output.
 This integer should be the sum of integers from 1 to n.
-'''
+"""
 
 import sys
+
 
 def sum(n):
     if n == 0:
         return n
     elif n > 0:
-        return n + sum(n-1)
+        return n + sum(n - 1)
+
 
 def main():
     # INPUT: (1 ≤ n ≤ 10 000)
@@ -37,7 +39,7 @@ def main():
     # OUTPUT
     print(sum(n))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     sys.setrecursionlimit(10000)
     main()
-

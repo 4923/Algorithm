@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2798
 
 문제
@@ -22,7 +22,7 @@ N장의 카드에 써져 있는 숫자가 주어졌을 때, M을 넘지 않으�
 
 출력
 첫째 줄에 M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력한다.
-'''
+"""
 
 import sys
 
@@ -32,9 +32,9 @@ cards = list(map(int, sys.stdin.readline().strip().split()))
 
 # 합 계산
 sums = []
-for idx1 in range(N+1):
-    for idx2 in range(idx1+1, N):
-        for idx3 in range(idx2+1, N):
+for idx1 in range(N + 1):
+    for idx2 in range(idx1 + 1, N):
+        for idx3 in range(idx2 + 1, N):
             # print(f'\tidx1: {idx1}, {cards[idx1]} idx2: {idx2}, {cards[idx2]} idx3: {idx3}, {cards[idx3]}')
             card_sum = cards[idx1] + cards[idx2] + cards[idx3]
             # print(f'\tcard_sum : {card_sum}')

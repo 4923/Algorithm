@@ -5,7 +5,7 @@ a, b = map(int, sys.stdin.readline().strip().split())
 
 # summation
 result = 0
-for e in range(a,b+1):
+for e in range(a, b + 1):
     result += e
 
 # output

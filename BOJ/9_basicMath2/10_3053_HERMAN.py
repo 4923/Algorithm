@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/3053
 
 문제
@@ -18,7 +18,7 @@ D(T1,T2) = |x1-x2| + |y1-y2|
 
 출력
 첫째 줄에는 유클리드 기하학에서 반지름이 R인 원의 넓이를, 둘째 줄에는 택시 기하학에서 반지름이 R인 원의 넓이를 출력한다. 정답과의 오차는 0.0001까지 허용한다.
-'''
+"""
 
 # [참고](https://m.blog.naver.com/alwaysneoi/100172516753) 택시 기하학이란?
 
@@ -31,5 +31,5 @@ import math  # pi
 R = int(input())
 
 # 출력
-print( f'{math.pi * pow(R, 2):.6f}' )  # 유클리드
-print( 2 * pow(R, 2) )  # 택시
+print(f"{math.pi * pow(R, 2):.6f}")  # 유클리드
+print(2 * pow(R, 2))  # 택시

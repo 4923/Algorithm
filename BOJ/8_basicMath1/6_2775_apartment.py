@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2775
 
 문제
@@ -11,7 +11,7 @@ https://www.acmicpc.net/problem/2775
 
 출력
 각각의 Test case에 대해서 해당 집에 거주민 수를 출력하라.
-'''
+"""
 
 # 수가 작으니까 각 층의 경우의 수 다 만들어도 상관 없을 것 같음
 # 규칙: apartment[floor][room] = apartment[floor-1][room] + apartment[floor][room-1]
@@ -23,24 +23,23 @@ for _ in range(int(sys.stdin.readline().strip())):
     rooms = int(sys.stdin.readline().strip())  # 열
 
     # 아파트 grid 생성: 거주인원
-    apartment = [
-        [room for room in range(rooms+1)]
-        for _ in range(floors+1)
-    ]
+    apartment = [[room for room in range(rooms + 1)] for _ in range(floors + 1)]
     print(apartment)
 
     # index로 접근
     # floor는 0부터 시작하며 room은 1부터 시작한다.
     # 0층은 호실 번호만큼 거주하므로 제외 (range(1, floors))
-    for floor in range(1, floors+1):
-        for room in range(1, rooms+1):
+    for floor in range(1, floors + 1):
+        for room in range(1, rooms + 1):
 
             # 1호는 모두 한 명씩 거주
             if room == 1:
                 apartment[floor][room] = 1
 
             else:
-                apartment[floor][room] = apartment[floor-1][room] + apartment[floor][room-1]
+                apartment[floor][room] = (
+                    apartment[floor - 1][room] + apartment[floor][room - 1]
+                )
                 # print(f'\t apartment[{floor}][{room}]:{apartment[floor][room]}, room number: {room}, floor: {floor}')
 
     # print('----------------------')

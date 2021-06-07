@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1193
 
 문제
@@ -21,7 +21,7 @@ X가 주어졌을 때, X번째 분수를 구하는 프로그램을 작성하시�
 첫째 줄에 분수를 출력한다.
 
 # 지그재그라는게 이해가 안가서 검색함 : https://nhs0912.tistory.com/56, https://jaimemin.tistory.com/1037
-'''
+"""
 
 # 문제가 도대체 무슨 의미인지 모르겠다
 # 순서: 1/1 1/2 2/1 3/1 2/2 1/3 1/4 2/3 /32 /41 5/1 4/2 3/3 2/4 1/5... ...
@@ -39,23 +39,24 @@ def num_denominator(x):
     #     return num_denominator(x-sub, sub+1)
 
     # [for] (분모와 분자가 뒤집힐 때 까지) 한 사이클을 돌아 신경쓰지 않아도 되는 값들은 지운다. 2부터 시작.
-    for i in range(1, x+1):
+    for i in range(1, x + 1):
         if x <= i:
-            return i+1
+            return i + 1
         else:
             x -= i
             i += 1
+
 
 # [분수를 출력하는 함수]
 # x : 사용자 입력값 (x번째 분수를 구하여라.)
 def fraction(x, denominator_plus_numerator):
     # 예외
     if x == 1:
-        fraction = '1/1'
+        fraction = "1/1"
         return print(fraction)
 
     # [for] 앞에서 이미 한 사이클 (ex 1/4 2/3 3/2 4/1) 돈 숫자는 무시함
-    for cnt in range(1, denominator_plus_numerator+1):
+    for cnt in range(1, denominator_plus_numerator + 1):
         # print(f'x: {x}, denomitor_numerator: {denominator_plus_numerator}, cnt: {cnt}')
 
         if x < denominator_plus_numerator:
@@ -64,17 +65,18 @@ def fraction(x, denominator_plus_numerator):
             # print(f'fraction: {fraction_num}, denomitor_numerator: {denominator_plus_numerator}, cnt: {cnt}')
 
             # 첫번째 분수의 분모 분자 합이 2이므로
-            if (denominator_plus_numerator-1) % 2 != 0:  # 홀수번째면 분자가 오름차순으로 증가
-                fraction = f'{denominator_plus_numerator - fraction_num}/{fraction_num}'
+            if (denominator_plus_numerator - 1) % 2 != 0:  # 홀수번째면 분자가 오름차순으로 증가
+                fraction = f"{denominator_plus_numerator - fraction_num}/{fraction_num}"
                 print(fraction)
             else:  # 짝수번째면 분모가 오름차순으로 증가 (홀수일때와 분자 분모 순서 뒤바뀜)
-                fraction = f'{fraction_num}/{denominator_plus_numerator - fraction_num}'
+                fraction = f"{fraction_num}/{denominator_plus_numerator - fraction_num}"
                 print(fraction)
-            
+
             break
 
         x -= cnt
         # print(f'fraction: {x}, denomitor_numerator: {denominator_plus_numerator}, cnt: {cnt}')
+
 
 def main():
     x = int(sys.stdin.readline().strip())
@@ -83,7 +85,7 @@ def main():
     fraction(x, denominator_plus_numerator)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 
 

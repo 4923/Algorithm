@@ -4,10 +4,7 @@ import sys
 # n: 격자 크기, r for row / c for col: 시작 위치
 n, r, c = tuple(map(int, sys.stdin.readline().strip().split()))
 # grid = [list(map(int, sys.stdin.readline().strip().split())) for _ in range(n+1)]
-grid = [
-    [0 for _ in range(n+1)]
-    for _ in range(n+1)
-]
+grid = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
 
 # print(f'[INPUT CHECK]\n\tline 1 - n:{n} r:{r} c:{c}\n\tline 2 - grid:{grid}')
 
@@ -19,17 +16,19 @@ visited_nums = []
 def InRange(x, y):
     return 1 <= x <= n and 1 <= y <= n
 
+
 # 이동 조건2 : 현 위치보다 더 큰 수
 def CanGo(x, y, compare):
     return InRange(x, y) and grid[x][y] > compare
+
 
 # 이동
 def simulate():
     global r, c
 
     # 우선 순위: 상 > 하 > 좌 > 우
-    dxs=[1,-1, 0, 0]
-    dys=[0, 0, -1, 1]
+    dxs = [1, -1, 0, 0]
+    dys = [0, 0, -1, 1]
 
     # zip: [1,-1, 0, 0]와 [0, 0, 1, -1]를 인덱스끼리 묶는다.
     # 결과: (dx, dy) = (1, 0) (-1, 0) ... ...
@@ -41,14 +40,15 @@ def simulate():
         if CanGo(next_x, next_y, grid[r][c]):
             r, c = next_x, next_y
             return True
-        
+
     # 갈 수 없는 경우
     return False
 
+
 def main():
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         given_row = list(map(int, input().split()))
-        for j, e in enumerate(given_row, start = 1):
+        for j, e in enumerate(given_row, start=1):
             grid[i][j] = e
 
     # 초기 위치의 숫자 입력
@@ -64,12 +64,13 @@ def main():
 
         # 움직이고 난 후의 위치 입력
         visited_nums.append(grid[r][c])
-    
+
     # 출력
     for visited_num in visited_nums:
-        print(visited_num, end = ' ')
+        print(visited_num, end=" ")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
 
 # WRONG ANSWER

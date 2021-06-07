@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2941
 
 문제
@@ -28,11 +28,12 @@ lj와 nj도 마찬가지이다. 위 목록에 없는 알파벳은 한 글자씩 
 
 출력
 입력으로 주어진 단어가 몇 개의 크로아티아 알파벳으로 이루어져 있는지 출력한다.
-'''
+"""
 
 # croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 
 import sys
+
 # INPUT
 # maximum length: 100, lower alphabets && '-' && '='
 # Is neccessary to convert str to list? -> X. Not sure how to slice string
@@ -41,8 +42,9 @@ string = sys.stdin.readline().strip()
 # if문으로 하나하나 다 무식하게 검색하는건 아닌것같아서 엎음
 # string 내장함수를 쓰라는 말 같아서 find, replace, in 사용
 
+
 def isCroatia(string, croatia, count):
-    
+
     # 01-28 구글링 후 풀이
     for alpha_C in croatia:
         string = string.replace(alpha_C, "@")
@@ -89,8 +91,7 @@ def isCroatia(string, croatia, count):
     #             if string.find(alpha_C) == -1:
     #                 bPoint += 1
     #                 # print(f'\n\t\tbPoint : {bPoint}\n')
-                
-    
+
     # # [탐색] 일반 알파벳
     # string = string.replace(" ", "")
     # # print(f'Normal alphabets: {len(string)}')
@@ -98,26 +99,27 @@ def isCroatia(string, croatia, count):
     # # print(f'Total count: {count}')
     # return count
 
+
 def main():
     # variable
-    croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+    croatia = ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]
     count = 0
     # output
     # print(f'Origin string: {string}')
-    print(isCroatia(string,croatia, count))
+    print(isCroatia(string, croatia, count))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 
 # 반례 확인
 # input : ljes=njak
-# output : 8 
+# output : 8
 # answer : 6
 
 # 반례 확인 2 (예제 3)
 # input : nljj
-# output : 2 
+# output : 2
 # answer : 3
 # find와 replace로 문자열에서 크로아티아문자 lj를 제거하면 nj가 남는데 이걸 붙이면 또다른 크로아티아문자가 되므로 중간에 띄어쓰기를 해주고 다시 띄어쓰기를 제거하는 과정이 필요. (일반 알파벳 개수 셀 때)
 
@@ -128,8 +130,8 @@ if __name__ == '__main__':
 # replace 성질 때문인듯: c=와 c=에서 loop가 각각 따로 지워져야하는데 한번에 지워져버림
 
 
-'''
+"""
 2021-01-28
 replace 쓰는건 맞았는데 아예 안쓰는 문자로 치환하면 섞일일이 없으니 안전함
 엄청 쉽게 풀리네... 이전코드는 무슨... 채점 중간도 아니고 채점 시작하자마자 오답으로 걸렸는데 무슨차이인지 모르겠다
-'''
+"""

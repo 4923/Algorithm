@@ -1,4 +1,4 @@
-'''
+"""
 
 https://www.acmicpc.net/problem/2588
 
@@ -13,23 +13,23 @@ https://www.acmicpc.net/upload/images/f5NhGHVLM4Ix74DtJrwfC97KepPl27s%20(1).png
 
 출력
 첫째 줄부터 넷째 줄까지 차례대로 (3), (4), (5), (6)에 들어갈 값을 출력한다.
-'''
+"""
 
 # 입력: (1), (2)
 a = int(input())
 b = int(input())
 
 # 출력: (3), (4), (5), (6)
-'''
+"""
 3 = 1 * 2의 일의자리수 => c
 4 = 1 * 2의 십의자리수 => d
 5 = 1 * 2의 백의자리수 => e
 6 = 3 + 4 + 5 => f
-'''
+"""
 
-c = a * (b%10)
-d = a * int((b%100 - b%10)/10)
-e = a * int(b/100)
+c = a * (b % 10)
+d = a * int((b % 100 - b % 10) / 10)
+e = a * int(b / 100)
 f = c + d * 10 + e * 100
 
-print(f'{c}\n{d}\n{e}\n{f}')
+print(f"{c}\n{d}\n{e}\n{f}")

@@ -10,10 +10,7 @@ import sys
 
 # 1. 입력
 SIZE, X = map(int, sys.stdin.readline().strip().split())  # n, m
-grid = [
-    list(map(int, sys.stdin.readline().strip().split()))
-    for _ in range(SIZE)
-]
+grid = [list(map(int, sys.stdin.readline().strip().split())) for _ in range(SIZE)]
 
 # 2. 연속 확인 => 행, 열을 각각 확인할거라면 연속은 중복되는 작업이니 함수처리하는게 효율적이다.(오답)
 def isHappy(seq):
@@ -24,13 +21,14 @@ def isHappy(seq):
             consecutive_count += 1
         else:
             consecutive_count = 1
-        
+
         # 반복문이 끝날 때 마다 max 함수를 이용해 현재까지 연속한 수와 최대로 연속되는 수롤 비교함
         # 이렇게 할 수도 있구나...
-        max_ccnt = max(max_ccnt, consecutive_count)  
-    
-    # 최대로 연속한 회수가 m이상이면 true를 반환합니다. 
+        max_ccnt = max(max_ccnt, consecutive_count)
+
+    # 최대로 연속한 회수가 m이상이면 true를 반환합니다.
     return max_ccnt >= X
+
 
 # 3. 행복한 수열의 개수 확인 (최대 2n개)
 def isHappy_row():
@@ -42,7 +40,8 @@ def isHappy_row():
             # print(f'\t\t{happy}')
     # print(happy)
     return happy
-    
+
+
 def isHappy_col():
     happy = 0
     # 열탐색할때 이중 포문을 돌려야하는데 이 때 isHappy까지 돌리면 O(n3)이 되므로 주의해야한다. (오답)
@@ -57,7 +56,8 @@ def isHappy_col():
             # print(f'\t\t{happy}')
     # print(happy)
     return happy
-    
+
+
 # 4. 행복한 수열의 수 출력
 print(isHappy_row() + isHappy_col())
 

@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2292
 
 문제
@@ -15,7 +15,7 @@ https://www.acmicpc.net/JudgeOnline/upload/201009/3(2).png
 
 출력
 입력으로 주어진 방까지 최소 개수의 방을 지나서 갈 때 몇 개의 방을 지나는지 출력한다.
-'''
+"""
 
 # 각 방의 범위
 # [1] 1
@@ -29,25 +29,26 @@ https://www.acmicpc.net/JudgeOnline/upload/201009/3(2).png
 
 # input
 import sys
+
 n = int(sys.stdin.readline().strip())
 
 # -------------------------------------------------------------------------
 # @yun-aha : 사진보다 더 큰 숫자는 안풀림
 cnt = 2
-a=8
-while n>0:
-    if n==1:
-        cnt=1
+a = 8
+while n > 0:
+    if n == 1:
+        cnt = 1
         print(cnt)
         break
-    elif 1<n<8:
+    elif 1 < n < 8:
         print(cnt)
         break
-    else :
-        if n>=a:
-            a+=6*cnt
-            cnt+=1
-            print(f'new a: {a}, cnt: {cnt}')
+    else:
+        if n >= a:
+            a += 6 * cnt
+            cnt += 1
+            print(f"new a: {a}, cnt: {cnt}")
         else:
             print(cnt)
             break
@@ -66,22 +67,22 @@ while True:
     # max_num = (cnt-1) * 6 + cnt * 6
     max_num = cnt * 6  # [try 4: 식 교체]
 
-    print(f'\t[Check] cnt: {cnt}, max_num: {max_num}')
+    print(f"\t[Check] cnt: {cnt}, max_num: {max_num}")
 
     # [try 3 - 1] n이 max_num보다 크면 n에서 max_num을 뺌
     # try 2에서 시간 초과였으므로 연산 횟수를 줄이기 위함
     if n > max_num:
         n -= max_num
-        print(f'new n: {n}, cnt: {cnt}, max_num: {max_num}')
+        print(f"new n: {n}, cnt: {cnt}, max_num: {max_num}")
         cnt += 1
 
     # [try 3 - 2] n이 max_num보다 작으면 : 해당 껍질 안에 있으면
     else:
-        print(f'[else] n: {n}, cnt: {cnt}, max_num: {max_num}')
+        print(f"[else] n: {n}, cnt: {cnt}, max_num: {max_num}")
         print(cnt)
         break
 
-# [try 1] 오답: n에서 빼기 시작하면 안이 아니라 밖에서부터 건너오기 때문에 오답임. 
+# [try 1] 오답: n에서 빼기 시작하면 안이 아니라 밖에서부터 건너오기 때문에 오답임.
 # [try 3]
 # ㄴ 아... 상관 없지 않나 근데...?  어차피 순서가 아니라 개수 찾기인데
 # ㄴ 비교대상이 오름차순으로 커져서 안되는건가? 아니 그래도 개수인데?
@@ -89,7 +90,7 @@ while True:
 
 # [try 4]
 # 반례
-'''
+"""
 57
 new a: 20, cnt: 3
 new a: 38, cnt: 4
@@ -104,7 +105,7 @@ new n: 3, cnt: 3, max_num: 30
         [Check] cnt: 4, max_num: 42
 [else] n: 3, cnt: 4, max_num: 42
 4
-'''
+"""
 
 # 저기 max_num : 30이 끼면 안되는데...
 
@@ -127,5 +128,5 @@ new n: 3, cnt: 3, max_num: 30
 #             print(cnt)
 #             status = 0
 #             break
-            
+
 #     cnt += 1

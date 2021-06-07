@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1152
 
 문제
@@ -13,7 +13,7 @@ https://www.acmicpc.net/problem/1152
 
 출력
 첫째 줄에 단어의 개수를 출력한다.
-'''
+"""
 
 # INPUT
 # .split(), .strip()

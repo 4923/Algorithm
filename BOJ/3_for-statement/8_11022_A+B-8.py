@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/11022
 
 문제
@@ -11,7 +11,7 @@ https://www.acmicpc.net/problem/11022
 
 출력
 각 테스트 케이스마다 "Case #x: A + B = C" 형식으로 출력한다. x는 테스트 케이스 번호이고 1부터 시작하며, C는 A+B이다.
-'''
+"""
 
 import sys
 
@@ -19,6 +19,6 @@ import sys
 t = int(sys.stdin.readline())
 
 # OUTPUT
-for i in range(1, t+1):
+for i in range(1, t + 1):
     a, b = map(int, sys.stdin.readline().split())
-    sys.stdout.write(f'Case #{i}: {a} + {b} = {a+b}\n')
+    sys.stdout.write(f"Case #{i}: {a} + {b} = {a+b}\n")

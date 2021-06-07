@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10718
 
 문제
@@ -11,7 +11,7 @@ ACM-ICPC 인터넷 예선, Regional, 그리고 World Finals까지 이미 2회씩
 
 출력
 두 줄에 걸쳐 "강한친구 대한육군"을 한 줄에 한 번씩 출력한다.
-'''
+"""
 
 for i in range(2):
     print("강한친구 대한육군")

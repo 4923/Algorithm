@@ -1,4 +1,4 @@
-'''
+"""
 
 https://www.acmicpc.net/problem/1330
 
@@ -16,16 +16,16 @@ A가 B보다 작은 경우에는 '<'를 출력한다.
 A와 B가 같은 경우에는 '=='를 출력한다.
 제한
 -10,000 ≤ A, B ≤ 10,000
-'''
+"""
 
 # 입력
 a, b = map(int, input().split())
 
 # 출력
 if (-10000 < a < 10000) and (-10000 < b < 10000):
-    if (a > b):
+    if a > b:
         print(">")
-    elif (a == b):
+    elif a == b:
         print("==")
     else:
         print("<")

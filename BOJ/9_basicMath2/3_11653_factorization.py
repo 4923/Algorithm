@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/11653
 
 문제
@@ -9,39 +9,38 @@ https://www.acmicpc.net/problem/11653
 
 출력
 N의 소인수분해 결과를 한 줄에 하나씩 오름차순으로 출력한다. N이 1인 경우 아무것도 출력하지 않는다.
-'''
+"""
 
 # [입력]
 num = int(input())
 
 # [소인수분해] 재귀
 # def factorization(num, divisor):
-    # # print(f'num: {num} divisor: {divisor}')
+# # print(f'num: {num} divisor: {divisor}')
 
-    # # 종료조건
-    # if num == 1:
-    #     return
+# # 종료조건
+# if num == 1:
+#     return
 
-    # if num % divisor == 0:
-    #     divisors.append(divisor)
-    #     return factorization(num//divisor, divisor)
-    # else:
-    #     return factorization(num, divisor+1)
+# if num % divisor == 0:
+#     divisors.append(divisor)
+#     return factorization(num//divisor, divisor)
+# else:
+#     return factorization(num, divisor+1)
 
 # [소인수분해] while
 def factorization(num, divisor):
-    
+
     while True:
         if num == 1:
             return
-            
+
         else:
             if num % divisor == 0:
                 divisors.append(divisor)
                 num /= divisor
             else:
                 divisor += 1
-
 
 
 def main():
@@ -58,5 +57,6 @@ def main():
         # print(divisors)
         [print(divisor) for divisor in divisors]
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

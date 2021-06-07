@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2869
 
 문제
@@ -14,7 +14,7 @@ https://www.acmicpc.net/problem/2869
 
 출력
 첫째 줄에 달팽이가 나무 막대를 모두 올라가는데 며칠이 걸리는지 출력한다.
-'''
+"""
 
 import sys
 import math  # ceil

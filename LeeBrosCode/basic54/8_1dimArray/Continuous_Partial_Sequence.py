@@ -13,17 +13,20 @@ def isContinuous(a, b):
         cnt = -1
         for num in b:
             cnt += 1
-            if (a[start+cnt] != num):
+            if a[start + cnt] != num:
                 return False
         return True
-    
+
     except:
         return False
-def main():
-    if isContinuous(a,b) == True:
-        print('Yes')
-    else:
-        print('No')
 
-if __name__ == '__main__':
+
+def main():
+    if isContinuous(a, b) == True:
+        print("Yes")
+    else:
+        print("No")
+
+
+if __name__ == "__main__":
     main()

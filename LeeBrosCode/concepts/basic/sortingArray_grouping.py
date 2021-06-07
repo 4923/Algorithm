@@ -50,8 +50,8 @@ numbers = list(map(int, sys.stdin.readline().strip().split()))  # 2*N의 숫자
 numbers.sort()  # O(nlogn)
 
 group_max = 0
-for index in range(len(numbers)//2):
-    group_sum = numbers[index] + numbers[-index-1]
+for index in range(len(numbers) // 2):
+    group_sum = numbers[index] + numbers[-index - 1]
     # 합이 어떤 수들의 합인지는 중요하지 않다.
     if group_sum > group_max:
         group_max = group_sum

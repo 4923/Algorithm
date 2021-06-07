@@ -8,4 +8,4 @@ h, m = map(int, sys.stdin.readline().strip().split(":"))
 h += 1
 
 # output
-sys.stdout.write(str(h)+":"+str(m))
+sys.stdout.write(str(h) + ":" + str(m))

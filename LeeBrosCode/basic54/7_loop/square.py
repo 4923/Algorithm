@@ -9,6 +9,6 @@ nums = 1
 for i in range(n):
     # 열
     for j in range(n):
-        print(nums, end = " ")
+        print(nums, end=" ")
         nums += 1
     print()

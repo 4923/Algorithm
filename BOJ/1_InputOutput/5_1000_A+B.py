@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1000
 
 문제
@@ -9,6 +9,6 @@ https://www.acmicpc.net/problem/1000
 
 출력
 첫째 줄에 A+B를 출력한다.
-'''
+"""
 a, b = map(int, input().split())
-print(a+b)
+print(a + b)

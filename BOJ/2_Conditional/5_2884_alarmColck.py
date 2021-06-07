@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/2884
 
 문제
@@ -14,15 +14,15 @@ https://www.acmicpc.net/problem/2884
 
 출력
 첫째 줄에 상근이가 창영이의 방법을 사용할 때, 설정해야 하는 알람 시간을 출력한다. (입력과 같은 형태로 출력하면 된다.)
-'''
+"""
 
 # 입력
-hour, minute = map(int,input().split())
+hour, minute = map(int, input().split())
 
 # 출력
 if 45 <= minute <= 59:
-    print(f'{hour} {minute-45}')
+    print(f"{hour} {minute-45}")
 elif minute < 45:
     if hour == 0:
         hour = 24
-    print(f'{hour-1} {minute+60-45}')
+    print(f"{hour-1} {minute+60-45}")

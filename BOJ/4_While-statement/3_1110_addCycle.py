@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1110
 
 문제
@@ -16,7 +16,7 @@ N이 주어졌을 때, N의 사이클의 길이를 구하는 프로그램을 작
 
 출력
 첫째 줄에 N의 사이클 길이를 출력한다.
-'''
+"""
 
 # INPUT (0 <= n <= 99)
 n = int(input())
@@ -30,7 +30,7 @@ while True:
     a = new // 10
     b = new % 10
     c = a + b
-    
+
     # New number
     new = b * 10 + c % 10
 

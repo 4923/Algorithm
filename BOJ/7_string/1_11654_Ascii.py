@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/11654
 
 문제
@@ -9,7 +9,7 @@ https://www.acmicpc.net/problem/11654
 
 출력
 입력으로 주어진 글자의 아스키 코드 값을 출력한다.
-'''
+"""
 
 # INPUT
 a = input()  # str

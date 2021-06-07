@@ -10,4 +10,4 @@ ints = list(map(int, sys.stdin.readline().strip().split()))
 new = sorted(ints)
 
 # output
-print(new[k-1])
+print(new[k - 1])

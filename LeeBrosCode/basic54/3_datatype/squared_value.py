@@ -9,4 +9,4 @@ n = int(sys.stdin.readline())
 
 # output
 # sys.stdout.write(str(n**2))
-sys.stdout.write(str(pow(n,2)))
+sys.stdout.write(str(pow(n, 2)))

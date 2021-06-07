@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10870
 
 문제
@@ -16,7 +16,8 @@ n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작
 
 출력
 첫째 줄에 n번째 피보나치 수를 출력한다.
-'''
+"""
+
 
 def fibonacci(N):
     # 탈출 조건
@@ -24,8 +25,9 @@ def fibonacci(N):
         return 0
     elif N == 1:
         return 1
-    
-    return fibonacci(N-1) + fibonacci(N-2)
+
+    return fibonacci(N - 1) + fibonacci(N - 2)
+
 
 def main():
 
@@ -34,5 +36,5 @@ def main():
     print(fibonacci(N))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

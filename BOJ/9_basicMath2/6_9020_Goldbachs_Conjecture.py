@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/9020
 
 문제
@@ -18,10 +18,11 @@ https://www.acmicpc.net/problem/9020
 
 출력
 각 테스트 케이스에 대해서 주어진 n의 골드바흐 파티션을 출력한다. 출력하는 소수는 작은 것부터 먼저 출력하며, 공백으로 구분한다.
-'''
+"""
 
 import sys
 import math  # sqrt
+
 
 def eratos(number):
     if number == 0 or number == 1:
@@ -35,22 +36,24 @@ def eratos(number):
 
 def goldbach(number, prime):
     min = number
-    result1 = 0; result2 = 0
+    result1 = 0
+    result2 = 0
 
-    for gold in range(number//2, 1, -1):
+    for gold in range(number // 2, 1, -1):
 
         # 소수의 합일 때
-        if prime[gold] and prime[number-gold]:
-            
+        if prime[gold] and prime[number - gold]:
+
             # 소수의 차가 가장 작은 골드바흐 파티션 찾기
 
             if result2 - result1 == 0:
                 return print(gold, number - gold)
-                
+
             elif result2 - result1 <= min:
                 min = (number - gold) - gold
-                result1 = gold; result2 = number - gold
-            
+                result1 = gold
+                result2 = number - gold
+
             else:
                 return print(result1, result2)
 
@@ -64,5 +67,6 @@ def main():
 
         goldbach(number, prime)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

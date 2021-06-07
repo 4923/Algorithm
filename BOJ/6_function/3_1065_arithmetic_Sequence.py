@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/1065
 
 문제
@@ -11,7 +11,7 @@ N이 주어졌을 때, 1보다 크거나 같고, N보다 작거나 같은 한수
 
 출력
 첫째 줄에 1보다 크거나 같고, N보다 작거나 같은 한수의 개수를 출력한다.
-'''
+"""
 
 # INPUT
 n = int(input())  # 1 <= n <= 1000
@@ -24,28 +24,29 @@ def seq(n):
         n = n // 10
     return seq  # list
 
+
 def main():
 
     # 범위 : 1 < num <= 99
     if n <= 99:
         return print(n)
-    
+
     # 범위 : 100 <= num < n
     # 세자리 이상일 때 한수의 총 개수: count
     count = 99
-    # 100부터 n까지 하나씩 검사    
-    for num in range(100, n+1):
+    # 100부터 n까지 하나씩 검사
+    for num in range(100, n + 1):
         # num의 자릿수: digits
         digits = len(seq(num))
-        
+
         # 공차 (+ & -): diff
         diff = seq(num)[0] - seq(num)[1]
 
         # 공차 검사
-        for digit in range(0, digits-1):
-            if diff == seq(num)[digit] - seq(num)[digit+1]:
+        for digit in range(0, digits - 1):
+            if diff == seq(num)[digit] - seq(num)[digit + 1]:
                 # 모든 자릿수의 차이가 같을 때
-                if digit == digits-2:
+                if digit == digits - 2:
                     count += 1
             else:
                 break
@@ -53,5 +54,6 @@ def main():
     # OUTPUT
     return print(count)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

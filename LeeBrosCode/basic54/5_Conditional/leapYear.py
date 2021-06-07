@@ -1,5 +1,6 @@
 import sys
 
+
 def is_leap(y):
     # 4의 배수: leap
     if y // 4 > 0 and y % 4 == 0:
@@ -16,7 +17,7 @@ def is_leap(y):
             result = "true"
     else:
         result = "false"
-    
+
     return sys.stdout.write(str(result))
 
 
@@ -24,9 +25,10 @@ def main():
 
     # input: 1 <= y <= 2021
     y = int(sys.stdin.readline().strip())
-    
+
     # output
     is_leap(y)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

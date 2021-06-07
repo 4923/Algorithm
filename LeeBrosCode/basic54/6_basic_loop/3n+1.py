@@ -9,13 +9,13 @@ while True:
     # [종료조건]
     if number == 1:
         break
-    
+
     cnt += 1
 
     # [수 조작]
     if number % 2 == 0:
         number /= 2
     else:
-        number = number *3 + 1
+        number = number * 3 + 1
 
 print(cnt)

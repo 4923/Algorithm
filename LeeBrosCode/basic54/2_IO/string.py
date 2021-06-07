@@ -7,7 +7,7 @@ s = sys.stdin.readline()
 # output
 sys.stdout.write(s)
 
-'''
+"""
 #include <iostream>
 #include <string>  // string이 아니라 char로 선언하니까 Wrong Answer 돌아옴.
 using namespace std;
@@ -23,4 +23,4 @@ int main()
     // output
     cout << s <<endl;
 }
-'''
+"""

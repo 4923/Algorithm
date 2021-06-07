@@ -1,4 +1,4 @@
-'''
+"""
 https://www.acmicpc.net/problem/10950
 
 문제
@@ -11,7 +11,7 @@ https://www.acmicpc.net/problem/10950
 
 출력
 각 테스트 케이스마다 A+B를 출력한다.
-'''
+"""
 
 # INPUT
 # input: number of test case loop
