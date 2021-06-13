@@ -97,3 +97,22 @@ def solution(new_id):
 
 # Log
 # step 3: 연속하는 . 을 삭제하는 과정에서 범위 설정 잘못하여 시간 소모
+
+# Other Solution 
+# 아... 이거 정규식 문제구나...
+# 그리고 3단계를 '..' -> '.' 으로 바꾸는 방법 고미만 했었는데 저렇게 풀어도 괜찮구나...
+# 쓸데없는데 시간을 너무 많이 써버려서 (범위) 우선 연속하는 값 처리하는 방식 다시 정리하고 정규식 공부를 해보자.
+
+# 정규식 풀이
+# import re
+
+# def solution(new_id):
+#     st = new_id
+#     st = st.lower()
+#     st = re.sub('[^a-z0-9\-_.]', '', st)
+#     st = re.sub('\.+', '.', st)
+#     st = re.sub('^[.]|[.]$', '', st)
+#     st = 'a' if len(st) == 0 else st[:15]
+#     st = re.sub('^[.]|[.]$', '', st)
+#     st = st if len(st) > 2 else st + "".join([st[-1] for i in range(3-len(st))])
+#     return st
